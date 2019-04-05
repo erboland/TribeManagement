@@ -22,6 +22,7 @@ class App extends Component {
     super();
 
     this.state={
+      models: [],
       myName: 'Yerbol',
       user: {
         height: 179,
