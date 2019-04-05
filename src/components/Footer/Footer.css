@@ -1,0 +1,20 @@
+footer {
+    background-color: #79805C;
+    
+    
+}
+section {
+    width: 90vw;
+    margin: auto;
+}
+
+.input_email {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid white;
+}
+
+.input_email::placeholder {
+    color: white;
+}

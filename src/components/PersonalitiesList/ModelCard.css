@@ -1,0 +1,50 @@
+.hoverBox,
+.hoverBox *{
+    box-sizing: border-box;
+}
+.hoverBox {
+    position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+}
+.hoverBox img {
+	max-width: 100%;
+}
+
+.hoverBox:hover .hoverBox_layer_top,
+.hovrBox.active .hoverBox_layer_top {
+	opacity: 1;
+}
+
+.hoverBox_layer_bottom{
+    display: block;
+}
+
+.hoverBox_layer_top {
+    opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	padding: 15px;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+
+.hoverBox_text {
+    font-size: 1vh;
+    display: inline-block;
+    position: absolute;
+    text-align: left;
+    align-items: baseline;
+    
+}
