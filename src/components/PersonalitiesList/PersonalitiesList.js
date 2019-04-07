@@ -37,7 +37,6 @@ import ModelCard from './ModelCard';
             <article>
               <div className="cf pa2">
                 {this.createList()}
-                
               </div>
               
   

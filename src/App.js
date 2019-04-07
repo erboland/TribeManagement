@@ -12,6 +12,7 @@ import Personalities from './components/Personalities/Personalities';
 import BecomeModel from './components/BecomeModel/BecomeModel';
 import Contacts from './components/Contacts/Contacts';
 import Model from './components/Model/Model';
+import MyCasting from './components/MyCasting/MyCasting';
 
 
 
@@ -61,7 +62,7 @@ class App extends Component {
           <Route path='/becomemodel' component={BecomeModel}/>
           <Route path='/contacts' component={Contacts}/>
           <Route path='/model' component={Model}/>
-
+          <Route path='/mycasting' component={MyCasting}/>
         </div>
         </Router>
         <Footer />
