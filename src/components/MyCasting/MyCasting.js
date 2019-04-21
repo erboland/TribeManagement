@@ -6,7 +6,7 @@ export default class MyCasting extends Component {
     constructor(){
         super();
         this.state={
-            castings: [],
+            castings: sessionStorage.getItem('castings'),
             key: 0
         }
     }
@@ -27,7 +27,7 @@ export default class MyCasting extends Component {
                 </ul>
                 </nav> 
                 <div>
-                    <MyCastingSteps number={this.state.key} className='mt3 pa2'/>
+                    <MyCastingSteps number={this.state.key} castings={this.state.castings}className='mt3 pa2'/>
                 </div>
             </div>
         )

@@ -2,9 +2,8 @@ import React from 'react';
 import './ModelCard.css';
 import {Link} from 'react-router-dom';
 
-const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, modelHair, modelEyes, modelID}) =>{
-
-        return (
+const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, modelHair, modelEyes, id}) =>{   
+    return (
                 
                     <div className='hoverBox fl w-50 w-25-m w-25-l pa2'>
                         
@@ -22,7 +21,7 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
                                         Hair: {modelHair} <br/>
                                         Eyes: {modelEyes}
                                     </p>
-                                    <Link to='/model'className='link dim white underline f5'>View Portfolio</Link>
+                                    <Link to={"/model/"+id}className='link dim white underline f5'>View Portfolio</Link>
                                 </div>
                             </div>
                         

@@ -4,7 +4,7 @@ const Steps = ({number}) =>{
 
     
 
-    if (number==0) {
+    if (number===0) {
         return(
             <div className='firstStep'>
                 <p className='black b f4'>
@@ -39,7 +39,7 @@ const Steps = ({number}) =>{
                 </p>
             </div>
         );
-    } else if (number==1) {
+    } else if (number===1) {
         return (
         <div>
             <p className='black b f4'>

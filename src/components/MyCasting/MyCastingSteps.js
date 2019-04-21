@@ -1,7 +1,10 @@
 import React from 'react';
 import ModelCard from '../PersonalitiesList/ModelCard';
 
-const MyCastingSteps =({number})=> {
+const MyCastingSteps =({number, castings})=> {
+
+
+
     if (number==0) {
         return (
             <div>

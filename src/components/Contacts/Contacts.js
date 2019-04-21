@@ -15,9 +15,9 @@ export default class Contacts extends Component{
                 key: key
             }
         )
-        console.log(this.state.key);
     }
     render () {
+        
         return (
             <div className='cf main'>
                 <nav className="fl w-30 mb6 mt3">
@@ -27,7 +27,7 @@ export default class Contacts extends Component{
                         <li className='gray f4 pv2 mb4 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(2)}>Social Media</li>
                 </ul>
                 </nav> 
-                <ContactsChoice number={this.state.key}/>
+                <ContactsChoice number={this.state.key} database={this.props.database}/>
             </div>
             
         )

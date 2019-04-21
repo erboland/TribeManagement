@@ -14,7 +14,7 @@ import Contacts from './components/Contacts/Contacts';
 import Model from './components/Model/Model';
 import MyCasting from './components/MyCasting/MyCasting';
 
-
+let cartItems=[];
 
 
 class App extends Component {
@@ -24,16 +24,7 @@ class App extends Component {
 
     this.state={
       models: [],
-      myName: 'Yerbol',
-      user: {
-        height: 179,
-        chest: 83,
-        waist: 63,
-        shoes: 39,
-        hair: 'Dark Brown',
-        eyes: 'Yellow'
-        
-      }
+      myName: 'Yerbol'
     }
 
     this.app=firebase.initializeApp(DB_CONFIG);
@@ -42,6 +33,7 @@ class App extends Component {
   }
   
   componentDidMount () {
+    sessionStorage.setItem('castings', JSON.stringify([]))
     this.database.collection('models').doc('Otto').get()
     .then(snap=>{
       this.setState({
@@ -49,6 +41,8 @@ class App extends Component {
       });
     })
     
+  
+
   }
   
 
@@ -58,10 +52,10 @@ class App extends Component {
         <Router>
         <Header />
         <div className='main'>
-          <Route exact path='/' component={props=><Personalities {...props} model={this.state.model}/>}/>
+          <Route exact path='/' component={props=><Personalities {...props} models={this.state.models} database={this.database}/>}/>
           <Route path='/becomemodel' component={BecomeModel}/>
-          <Route path='/contacts' component={Contacts}/>
-          <Route path='/model' component={Model}/>
+          <Route path='/contacts' component={props=><Contacts {...props} database={this.database}/>}/>
+          <Route path='/model/:id' component={props=><Model {...props} database={this.database}/>}/>
           <Route path='/mycasting' component={MyCasting}/>
         </div>
         </Router>

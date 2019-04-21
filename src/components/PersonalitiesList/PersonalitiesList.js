@@ -1,57 +1,65 @@
 import React, {Component} from 'react';
+import 'firebase/firestore';
 import ModelCard from './ModelCard';
 
  export default class PersonalitiesList extends Component {
       constructor() {
         super() 
-
-        this.state = {
-          models: []
-        }
-      }
-
-      componentDidMount (){
-        console.log(this.props.model)
-        this.setState({
-          model: this.props.model
-        })
-      }
-      createList = () =>{
-        let table=[];
-        for (let i=0; i<8; i++){
-          table.push(<ModelCard  
-            modelHeight={this.state.model.height}
-            modelChest={this.state.model.chest}
-            modelEyes={this.state.model.eyes}
-            modelHair={this.state.model.hair}
-            modelName={this.state.model.name}
-            modelShoes={this.state.model.shoes}
-            modelWaist={this.state.model.waist}
-            />)
-        }
-        return table
-      }
-      render (){
-        if (this.state.model) {
-          return (
-            <article>
-              <div className="cf pa2">
-                {this.createList()}
-              </div>
-              
-  
-  
-            </article>
-        );
-        } else {
-          return (
-            <div className='flex justify-center items-center f2 gray'>
-              Please wait...
-            </div>
-          )
+        this.state={
+          model: []
         }
         
       }
+
+      componentDidMount (){
+
+        this.props.database.collection('models').get().then(snap => {
+          const model = [];
+          snap.forEach(doc => {
+            let id=doc.id;
+            const { height, chest, eyes, hair, name, shoes, waist} = doc.data();
+            model.push({ height, chest, eyes, hair, name, shoes, waist, id });
+          });
+          this.setState({ model });
+        });
+      }
+       
+      
+
+      
+
+      render (){
+          if (this.state.model.length>0){
+            return (
+              <article>
+                <div className="cf pa2">
+                
+                {this.state.model.map(doc => <ModelCard 
+                key={doc.id} 
+                id={doc.id}
+                modelHeight={doc.height}
+                modelChest={doc.chest}
+                modelEyes={doc.eyes}
+                modelHair={doc.hair}
+                modelName={doc.name}
+                modelShoes={doc.shoes}
+                modelWaist={doc.waist}
+                />)}
+                </div>
+                
+    
+    
+              </article>
+          );
+          } else {
+            return (
+              <div className='flex justify-center items-center f2 gray'>
+                Please wait...
+              </div>
+            )
+          }
+      }
+    
         
 }
 
