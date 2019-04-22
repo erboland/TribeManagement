@@ -7,19 +7,11 @@ export default class Header extends Component{
     constructor(){
         super();
         this.state ={
-            cart: sessionStorage.getItem('castings')
+            cart: localStorage
         }
         
     }
 
-    componentDidUpdate(){
-        if (sessionStorage.getItem('castings')!==this.state.cart){
-            this.setState({
-                cart: sessionStorage.getItem('castings')
-            })
-        }
-        
-    }
 
     render () {
         return (

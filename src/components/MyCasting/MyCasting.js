@@ -6,7 +6,7 @@ export default class MyCasting extends Component {
     constructor(){
         super();
         this.state={
-            castings: sessionStorage.getItem('castings'),
+            castings: [],
             key: 0
         }
     }
@@ -15,6 +15,14 @@ export default class MyCasting extends Component {
         this.setState({
             key: key
         })
+    }
+
+    componentDidMount(){
+        let castingsArray = [];
+        for(let i=0; i<=localStorage.length-1; i++) {
+            castingsArray.push(localStorage.getItem(localStorage.key(i)));
+        }
+        this.setState({castings: castingsArray});
     }
 
     render(){

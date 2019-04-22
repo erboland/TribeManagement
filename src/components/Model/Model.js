@@ -24,27 +24,33 @@ export default class Model extends Component{
               console.log('No such document!');
             } else {
                 let model= doc.data();
+                model.id = this.props.match .params.id;
               this.setState({model});
             }
           });
+          for(let i=0; i<=localStorage.length; i++) {
+            if (JSON.stringify(localStorage.key(i))==JSON.stringify(this.props.match.params.id)){
+             document.getElementById('addButton').innerHTML = 'Remove';
+            } 
+         }
 
     }
 
     addToCart = (e) => {
         e.preventDefault();
         let modelExists=false;
-        let currentCart = JSON.parse(sessionStorage.getItem('castings'));
-        currentCart.forEach(element=>{
-            if (JSON.stringify(element)==JSON.stringify(this.state.model)){
-                alert('You already have this model');
-                modelExists = true
-            }
-        })
+        
+        for(let i=0; i<=localStorage.length; i++) {
+           if (JSON.stringify(localStorage.key(i))==JSON.stringify(this.props.match.params.id)){
+            localStorage.removeItem(this.props.match.params.id);
+            document.getElementById('addButton').innerHTML = 'Add';
+            modelExists = true
+           } 
+        }
         if (modelExists===false) {
-            console.log(currentCart);
-            currentCart.push(this.state.model);
-            sessionStorage.setItem('castings', JSON.stringify(currentCart));
+            localStorage.setItem(this.props.match.params.id, JSON.stringify(this.state.model));
         } 
+        window.location.reload();
     }
 
     changeKey (key) {
@@ -56,7 +62,7 @@ export default class Model extends Component{
             <div className='cf main'>
                 <nav className="fl w-30 mb6 mt3 cf">
                     <p className='b f2 pa2 pl4 mb5'>
-                        {this.state.model.name} <button className='pa1' onClick={this.addToCart}>Add</button>
+                        {this.state.model.name} <button className='pa1' onClick={this.addToCart} id='addButton'>Add</button>
                     </p>
                     <ul className='list'>
                             <li className='black f4 pb2 mb4 link dim pa2 pt0 pl0 pointer'  onClick={()=>this.changeKey(0)}>Characteristic</li>

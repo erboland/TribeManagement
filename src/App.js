@@ -30,10 +30,10 @@ class App extends Component {
     this.app=firebase.initializeApp(DB_CONFIG);
     this.database=firebase.firestore();
     
+    
   }
   
   componentDidMount () {
-    sessionStorage.setItem('castings', JSON.stringify([]))
     this.database.collection('models').doc('Otto').get()
     .then(snap=>{
       this.setState({

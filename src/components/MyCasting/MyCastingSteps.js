@@ -8,33 +8,22 @@ const MyCastingSteps =({number, castings})=> {
     if (number==0) {
         return (
             <div>
-                {/* <ModelCard  
-            modelHeight={this.state.model.height}
-            modelChest={this.state.model.chest}
-            modelEyes={this.state.model.eyes}
-            modelHair={this.state.model.hair}
-            modelName={this.state.model.name}
-            modelShoes={this.state.model.shoes}
-            modelWaist={this.state.model.waist}
-            />
-            <ModelCard  
-            modelHeight={this.state.model.height}
-            modelChest={this.state.model.chest}
-            modelEyes={this.state.model.eyes}
-            modelHair={this.state.model.hair}
-            modelName={this.state.model.name}
-            modelShoes={this.state.model.shoes}
-            modelWaist={this.state.model.waist}
-            />
-            <ModelCard  
-            modelHeight={this.state.model.height}
-            modelChest={this.state.model.chest}
-            modelEyes={this.state.model.eyes}
-            modelHair={this.state.model.hair}
-            modelName={this.state.model.name}
-            modelShoes={this.state.model.shoes}
-            modelWaist={this.state.model.waist}
-            /> */}
+                {castings.map(doc => {
+                    let objectDoc = JSON.parse(doc);
+                    return <ModelCard 
+                    key={objectDoc.id} 
+                    id={objectDoc.id}
+                    modelHeight={objectDoc.height}
+                    modelChest={objectDoc.chest}
+                    modelEyes={objectDoc.eyes}
+                    modelHair={objectDoc.hair}
+                    modelName={objectDoc.name}
+                    modelShoes={objectDoc.shoes}
+                    modelWaist={objectDoc.waist}
+                    />
+
+            
+                })}
             </div>
         );
     } else {
@@ -47,7 +36,7 @@ const MyCastingSteps =({number, castings})=> {
                     <input placeholder='Email address' className='w-100 f4 pv2 mb4 mr2'/>
                     <input placeholder='Contact address' className='w-100 f4 pv2 mb4 mr2'/>
                     <textarea placeholder='Leave a message' className='w-100 f4 pv2 mb4 mr2'></textarea>
-                    <input class="b ph5 pv3 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Send"/>
+                    <input className="b ph5 pv3 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Send"/>
                 </form>
                 </div>
             </div>

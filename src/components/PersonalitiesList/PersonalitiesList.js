@@ -34,17 +34,20 @@ import ModelCard from './ModelCard';
               <article>
                 <div className="cf pa2">
                 
-                {this.state.model.map(doc => <ModelCard 
-                key={doc.id} 
-                id={doc.id}
-                modelHeight={doc.height}
-                modelChest={doc.chest}
-                modelEyes={doc.eyes}
-                modelHair={doc.hair}
-                modelName={doc.name}
-                modelShoes={doc.shoes}
-                modelWaist={doc.waist}
-                />)}
+                {this.state.model.map(doc => {
+                  console.log(doc);
+                  return <ModelCard 
+                  key={doc.id} 
+                  id={doc.id}
+                  modelHeight={doc.height}
+                  modelChest={doc.chest}
+                  modelEyes={doc.eyes}
+                  modelHair={doc.hair}
+                  modelName={doc.name}
+                  modelShoes={doc.shoes}
+                  modelWaist={doc.waist}
+                  />
+                })}
                 </div>
                 
     
