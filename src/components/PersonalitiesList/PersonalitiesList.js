@@ -35,7 +35,6 @@ import ModelCard from './ModelCard';
                 <div className="cf pa2">
                 
                 {this.state.model.map(doc => {
-                  console.log(doc);
                   return <ModelCard 
                   key={doc.id} 
                   id={doc.id}

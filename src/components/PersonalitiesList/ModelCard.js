@@ -3,7 +3,6 @@ import './ModelCard.css';
 import {Link} from 'react-router-dom';
 
 const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, modelHair, modelEyes, id}) =>{ 
-    console.log(id);  
     return (
                 
                     <div className='hoverBox fl w-50 w-25-m w-25-l pa2'>
