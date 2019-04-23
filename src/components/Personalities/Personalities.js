@@ -9,7 +9,7 @@ export default class Personalities extends Component{
     render () {
         
         return (
-            <div className="personalities_desktop">
+            <div className="personalities_desktop pl4">
                 <div className="personalities_types mt4 pv3"> 
                     <a className="link mr3 dim black pointer" >Main board</a>
                     <a className="link mr2 dim gray pointer" >New faces</a>

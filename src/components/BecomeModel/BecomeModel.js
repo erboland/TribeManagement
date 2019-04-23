@@ -108,7 +108,7 @@ export default class Header extends Component{
         return (
             <div className='cf main'>
                 <nav className="fl w-30 mb6 mt3">
-                    <ul className='list'>
+                    <ul className='list pl4'>
                         <li className='black f4 pb2 mb4 link dim pa2 pt0 pl0' id='first'>First Step</li>
                         <li className='gray f4 pv2 mb4 link dim pa2 pl0' id='second'>Second Step</li>
                         <li className='gray f4 pv2 mb4 link dim pa2 pl0' id='third'>Final Step</li>

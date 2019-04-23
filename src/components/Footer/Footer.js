@@ -6,8 +6,8 @@ export default class Footer extends Component{
 
     render () {
         return (
-            <footer className="pa4 pa5-l white bt b--black-10 mt6">
-                <section className="cf">
+            <footer className="pa4 pa5-l white bt b--black-10 mt6 ">
+                <section className="cf pl4">
                     <div className="mb0-ns fl w-55" >
                     <p className="f3 fw6 mb2 mt0">
                         Newsletter
@@ -18,7 +18,7 @@ export default class Footer extends Component{
                     <path d="M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z"></path>
                     </svg>
                     </div>
-                    <div className='fr w-15 pl5'>
+                    <div className='fr w-15 pl5 pr4'>
                         <p>
                             Follow us:
                         </p>

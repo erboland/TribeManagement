@@ -38,13 +38,13 @@ export default class Header extends Component{
 
     render () {
         return (
-            <nav className="pa5 pa4-ns pl0">
+            <nav className="pa5 pa4-ns pl0 pr0">
                 <Link className="link dim black b f6 f5-ns dib mr3 " to="/" title="Home" >Tribe Management</Link>
                 <Link className="link dim black  f6 f5-ns dib mr3 pl4" to="/" title="Home" id='0' onClick={()=>this.keyFixer(0)}>Personalities</Link>
                 <a className="link dim black    f6 f5-ns dib mr3" href="#" title="About" id='1' onClick={()=>this.keyFixer(1)}>News</a>
                 <Link className="link dim black    f6 f5-ns dib mr3" to='/becomemodel' title="Store" id='2' onClick={()=>this.keyFixer(2)}>Become a model</Link>
                 <Link className="link dim black    f6 f5-ns dib" to='/contacts' title="Contact" id='3'onClick={()=>this.keyFixer(3)}>Contacts</Link>
-                <Link className="link dim black    f6 f5-ns dib fr mr5" to='/mycasting' title="My casting">My casting({this.state.cart?this.state.cart.length:0})</Link>
+                <Link className="link dim black    f6 f5-ns dib fr " to='/mycasting' title="My casting">My casting({this.state.cart?this.state.cart.length:0})</Link>
             </nav>
         )
     }

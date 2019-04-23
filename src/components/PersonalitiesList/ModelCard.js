@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, modelHair, modelEyes, id}) =>{ 
     return (
                 
-                    <div className='hoverBox fl w-50 w-25-m w-25-l pa2'>
+                    <div className='hoverBox fl w-50 w-25-m w-25-l pa2 pl1 '>
                         
                             <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10' src='http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png'/>
                             <div className='hoverBox_layer_top'>

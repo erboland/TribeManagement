@@ -32,7 +32,7 @@ import ModelCard from './ModelCard';
           if (this.state.model.length>0){
             return (
               <article>
-                <div className="cf pa2">
+                <div className="cf pa2 pl0 pr3">
                 
                 {this.state.model.map(doc => {
                   return <ModelCard 
