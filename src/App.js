@@ -53,7 +53,7 @@ class App extends Component {
         <Header />
         <div className='main'>
           <Route exact path='/' component={props=><Personalities {...props} models={this.state.models} database={this.database}/>}/>
-          <Route path='/becomemodel' component={BecomeModel}/>
+          <Route path='/becomemodel' component={props=><BecomeModel {...props} database={this.database}/>}/>
           <Route path='/contacts' component={props=><Contacts {...props} database={this.database}/>}/>
           <Route path='/model/:id' component={props=><Model {...props} database={this.database}/>}/>
           <Route path='/mycasting' component={MyCasting}/>
