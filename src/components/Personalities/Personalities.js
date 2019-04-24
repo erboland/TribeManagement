@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 import PersonalitiesList from '../PersonalitiesList/PersonalitiesList';
+import {Link} from 'react-router-dom';
+
 import './Personalities.css';
 
 
 export default class Personalities extends Component{
     
+
+    componentDidMount(){
+        if(this.props.number==2){
+            document.getElementById('viewMore').style.display='none';
+        }
+        document.getElementById('viewMore').style.textDecoration='none';
+    }
+
+
     
     render () {
         
@@ -44,10 +55,10 @@ export default class Personalities extends Component{
                     <a className="link mr2 dim gray" href='#'>y</a>
                     <a className="link mr2 dim gray" href='#'>z</a>
                 </div>
-                <PersonalitiesList models={this.props.models} database={this.props.database}/>
-                <div className='mt3 black flex justify-center mb5 dim pointer'>
+                <PersonalitiesList models={this.props.models} database={this.props.database} number={this.props.number}/>
+                <Link className='mt3 black flex justify-center mb5 dim pointer b' to='/allmodels' id='viewMore'>
                     View more
-                </div>
+                </Link>
             </div>
         )
     }
