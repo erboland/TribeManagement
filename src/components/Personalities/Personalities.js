@@ -12,6 +12,13 @@ export default class Personalities extends Component{
             document.getElementById('viewMore').style.display='none';
         }
         document.getElementById('viewMore').style.textDecoration='none';
+
+        if(this.props.isMobile){
+            document.getElementById('personalities_alphabet').style.display='none';
+            document.getElementById('viewMore').style.borderStyle='solid';
+            document.getElementById('viewMore').style.width='30vw';
+            document.getElementById('viewMore').style.borderWidth='1px';
+        }
     }
 
 
@@ -26,7 +33,7 @@ export default class Personalities extends Component{
                     <a className="link mr2 dim gray pointer">Dancers</a>
                     <a className="link mr2 dim gray pointer">All</a>
                 </div>
-                <div className="personalities_alphabet">
+                <div id="personalities_alphabet">
                     <a className="link mr2 dim gray" href='#'>a</a>
                     <a className="link mr2 dim gray" href='#'>b</a>
                     <a className="link mr2 dim gray" href='#'>c</a>
@@ -55,9 +62,12 @@ export default class Personalities extends Component{
                     <a className="link mr2 dim gray" href='#'>z</a>
                 </div>
                 <PersonalitiesList models={this.props.models} database={this.props.database} number={this.props.number}/>
-                <Link className='mt3 black flex justify-center mb5 dim pointer b' to='/allmodels' id='viewMore'>
-                    View more
-                </Link>
+                <div className='flex justify-center'>
+                    <Link className='mt3 black flex justify-center mb5 dim pointer b pa2' to='/allmodels' id='viewMore'>
+                        View more
+                    </Link>
+                </div>
+                
             </div>
         )
     }
