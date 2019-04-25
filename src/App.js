@@ -24,15 +24,24 @@ class App extends Component {
 
     this.state={
       models: [],
-      myName: 'Yerbol'
+      myName: 'Yerbol',
+      width: window.innerWidth
     }
 
     this.app=firebase.initializeApp(DB_CONFIG);
     this.database=firebase.firestore();
-    
-    
   }
-  
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
+
   componentDidMount () {
     this.database.collection('models').doc('Otto').get()
     .then(snap=>{
@@ -47,20 +56,23 @@ class App extends Component {
   
 
   render() {
+    const { width } = this.state;
+    const isMobile = width <= 500;
+
     return (
       <div className="App" >
         <Router>
-        <Header />
+        <Header isMobile={isMobile}/>
         <div className='main'>
-          <Route exact path='/' component={props=><Personalities {...props} models={this.state.models} database={this.database} number={1}/>}/>
-          <Route path='/becomemodel' component={props=><BecomeModel {...props} database={this.database}/>}/>
-          <Route path='/contacts' component={props=><Contacts {...props} database={this.database}/>}/>
-          <Route path='/model/:id' component={props=><Model {...props} database={this.database}/>}/>
-          <Route path='/mycasting' component={MyCasting}/>
-          <Route path='/allmodels' component={props=><Personalities {...props} models={this.state.models} database={this.database} number={2}/>}/>
+          <Route exact path='/' component={props=><Personalities {...props} isMobile={isMobile} models={this.state.models} database={this.database} number={1}/>}/>
+          <Route path='/becomemodel' component={props=><BecomeModel {...props} isMobile={isMobile} database={this.database}/>}/>
+          <Route path='/contacts' component={props=><Contacts {...props} isMobile={isMobile} database={this.database}/>}/>
+          <Route path='/model/:id' component={props=><Model {...props} isMobile={isMobile} database={this.database}/>}/>
+          <Route path='/mycasting' component={props=><MyCasting {...props} isMobile={isMobile}/>}/>
+          <Route path='/allmodels' component={props=><Personalities {...props} isMobile={isMobile} models={this.state.models} database={this.database} number={2}/>}/>
         </div>
         </Router>
-        <Footer />
+        <Footer isMobile={isMobile}/>
       </div>
     );
   }

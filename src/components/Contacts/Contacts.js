@@ -6,7 +6,7 @@ export default class Contacts extends Component{
     constructor(){
         super();
         this.state={
-            key: 0 
+            key: 0
         }
         
     }

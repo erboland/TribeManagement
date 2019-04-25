@@ -34,8 +34,8 @@ export default class MyCasting extends Component {
                         <li className='gray f4 pv2 mb4 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(1)}>Your contacts</li>
                 </ul>
                 </nav> 
-                <div>
-                    <MyCastingSteps number={this.state.key} castings={this.state.castings}className='mt3 pa2'/>
+                <div className='fr w-70'>
+                    <MyCastingSteps number={this.state.key} castings={this.state.castings}className='mt3 pa2 '/>
                 </div>
             </div>
         )

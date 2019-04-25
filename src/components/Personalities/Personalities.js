@@ -6,7 +6,6 @@ import './Personalities.css';
 
 
 export default class Personalities extends Component{
-    
 
     componentDidMount(){
         if(this.props.number==2){
@@ -18,7 +17,7 @@ export default class Personalities extends Component{
 
     
     render () {
-        
+        console.log(this.props.isMobile)
         return (
             <div className="personalities_desktop pl4">
                 <div className="personalities_types mt4 pv3"> 
