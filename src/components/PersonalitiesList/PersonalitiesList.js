@@ -30,7 +30,8 @@ import ModelCard from './ModelCard';
        
       firstDisplayParser=()=>{
         let table=[];
-        for (let i=0; i<=7; i++){
+        let modelsNumber = this.props.isMobile? 3: 7;
+        for (let i=0; i<=modelsNumber; i++){
           let doc = this.state.model[i];
           table.push(<ModelCard 
             key={doc.id} 

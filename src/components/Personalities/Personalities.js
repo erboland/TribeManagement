@@ -61,7 +61,7 @@ export default class Personalities extends Component{
                     <a className="link mr2 dim gray" href='#'>y</a>
                     <a className="link mr2 dim gray" href='#'>z</a>
                 </div>
-                <PersonalitiesList models={this.props.models} database={this.props.database} number={this.props.number}/>
+                <PersonalitiesList isMobile={this.props.isMobile} models={this.props.models} database={this.props.database} number={this.props.number}/>
                 <div className='flex justify-center'>
                     <Link className='mt3 black flex justify-center mb5 dim pointer b pa2' to='/allmodels' id='viewMore'>
                         View more
