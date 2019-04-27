@@ -26,19 +26,29 @@ export default class MyCasting extends Component {
     }
 
     render(){
-        return (
-            <div className='cf'>
-                <nav className="fl w-30 mb6 mt3">
-                <ul className='list'>
-                        <li className='black f4 pb2 mb4 link dim pa2 pt0 pl0 pointer' onClick={()=>this.keyFixer(0)}>My casting overview</li>
-                        <li className='gray f4 pv2 mb4 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(1)}>Your contacts</li>
-                </ul>
-                </nav> 
-                <div className='fr w-70'>
-                    <MyCastingSteps number={this.state.key} castings={this.state.castings}className='mt3 pa2 '/>
+        if (!this.props.isMobile){
+            return (
+                <div className='cf'>
+                    <nav className="fl w-30 mb6 mt3">
+                    <ul className='list'>
+                            <li className='black f4 pb2 mb4 link dim pa2 pt0 pl0 pointer' onClick={()=>this.keyFixer(0)}>My casting overview</li>
+                            <li className='gray f4 pv2 mb4 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(1)}>Your contacts</li>
+                    </ul>
+                    </nav> 
+                    <div className='fr w-70'>
+                        <MyCastingSteps number={this.state.key} castings={this.state.castings}className='mt3 pa2 '/>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className='cf'>
+                    <p className='f4'>My casting overview</p>
+                    <MyCastingSteps number={this.state.key} castings={this.state.castings}className='mt3 '/>
+                </div>
+            )
+        }
+
     }
 
 }

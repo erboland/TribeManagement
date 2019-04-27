@@ -26,6 +26,10 @@ import ModelCard from './ModelCard';
         this.setState({
           display: this.props.number
         })
+        if (!this.props.isMobile) {
+          
+        }
+
       }
        
       firstDisplayParser=()=>{
