@@ -103,6 +103,7 @@ export default class Model extends Component{
         } else {
             return (
                 <div>
+                    <p className='f3 b'>{this.state.model.name}</p>
                     <Dropdown  options={this.state.options} onChange={this.changeNumber} value={defaultOption} placeholder="Select an option" />
                     <ModelSections number={this.state.key} modelInfo={this.state.model} isMobile={this.props.isMobile} style={{height: '40vh'}}/>
                 </div>

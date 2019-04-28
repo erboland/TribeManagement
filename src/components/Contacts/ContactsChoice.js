@@ -73,7 +73,7 @@ const ContactsChoice = ({number, database, isMobile}) => {
                 })
             }
             return (
-                <div className='feedback fr w-70'>
+                <div className='feedback fr w-75 pt3 pr4'>
                     <form id='contactForm'>
                         <input placeholder='First Name' className='pv2 f4 fl mb4' style={{width: '47.5%'}} id='fn'/>
                         <input placeholder='Last Name' className=' pv2 f4 fr mb4' style={{width: '47.5%'}} id='ln'/>
@@ -86,7 +86,7 @@ const ContactsChoice = ({number, database, isMobile}) => {
             );
         } else {
             return (
-                <div className='instagram fr w-70'>
+                <div className='instagram fr w-75'>
                     <p>
                         Instagram <a href='https://www.instagram.com/tribe.management/' className='link black dim underline'>@tribe.management</a>
                     </p>

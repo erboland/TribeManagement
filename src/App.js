@@ -13,6 +13,7 @@ import BecomeModel from './components/BecomeModel/BecomeModel';
 import Contacts from './components/Contacts/Contacts';
 import Model from './components/Model/Model';
 import MyCasting from './components/MyCasting/MyCasting';
+import Admin from './components/Admin/Admin';
 
 let cartItems=[];
 
@@ -68,8 +69,9 @@ class App extends Component {
           <Route path='/becomemodel' component={props=><BecomeModel {...props} isMobile={isMobile} database={this.database}/>}/>
           <Route path='/contacts' component={props=><Contacts {...props} isMobile={isMobile} database={this.database}/>}/>
           <Route path='/model/:id' component={props=><Model {...props} isMobile={isMobile} database={this.database}/>}/>
-          <Route path='/mycasting' component={props=><MyCasting {...props} isMobile={isMobile}/>}/>
+          <Route path='/mycasting' component={props=><MyCasting {...props} isMobile={isMobile} database={this.database}/>}/>
           <Route path='/allmodels' component={props=><Personalities {...props} isMobile={isMobile} models={this.state.models} database={this.database} number={2}/>}/>
+          <Route path='/controlpanel' component={props=><Admin {...props} database={this.database}/>}/>
         </div>
         </Router>
         <Footer isMobile={isMobile}/>

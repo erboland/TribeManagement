@@ -47,14 +47,14 @@ export default class Contacts extends Component{
         if (!this.props.isMobile){
             return (
                 <div className='cf main'>
-                    <nav className="fl w-30 mb6 mt3">
+                    <nav className="fl w-25 mb6 mt3">
                     <ul className='list'>
-                            <li className='gray f4 pb2 mb4 link dim pa2 pt0 pl0 pointer' onClick={()=>this.keyFixer(0)} id='0'color={{}}> Contacts</li>
-                            <li className='gray f4 pv2 mb4 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(1)} id='1'>Feedback</li>
-                            <li className='gray f4 pv2 mb4 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(2)} id='2'>Social Media</li>
+                            <li className='gray f4 pb2 mb3 link dim pa2 pt0 pl0 pointer' onClick={()=>this.keyFixer(0)} id='0'color={{}}> Contacts</li>
+                            <li className='gray f4 pv2 mb3 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(1)} id='1'>Feedback</li>
+                            <li className='gray f4 pv2 mb3 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(2)} id='2'>Social Media</li>
                     </ul>
                     </nav> 
-                    <ContactsChoice number={this.state.key} database={this.props.database} isMobile={this.props.isMobile}/>
+                    <ContactsChoice number={this.state.key} database={this.props.database} isMobile={this.props.isMobile} className=''/>
                 </div>
                 
             )
