@@ -49,7 +49,7 @@ export default class Header extends Component{
 
     render () {
         return (
-            <nav>
+            <nav style={{'text-underline-position': 'under' }}>
                 <div className="pa5 pa4-ns pl0 pr0 navWide">
                     <Link className="link dim black b f6 f5-ns dib mr3 " to="/" title="Home" >Tribe Management</Link>
                     <Link className="link dim black  f6 f5-ns dib mr3 pl4" to="/" title="Home" id='0' onClick={()=>this.keyFixer(0)}>Personalities</Link>

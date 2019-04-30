@@ -208,8 +208,9 @@ export default class Header extends Component{
                         <input placeholder='Email address' id='email' className='w-100 f4 pv2 mb4 mr2'/>
                         <input placeholder='Birth date (dd/mm/yy)' id='bd' className='w-100 f4 pv2 mb4 mr2'/>
                         <input placeholder='Nationality' id='nation' className='w-100 f4 pv2 mb4 mr2'/>
-                        <p className='black pointer dim b' id='secondStep' onClick={this.secondStepUpdater}>
-                            Second Step
+                        <p className='black pointer dim flex items-center' id='secondStep' onClick={this.secondStepUpdater}>
+                            <div id='arrowDown'></div>
+                            <p>Second Step</p>
                         </p>
                         </div>
                         <div id='finalStep'>
@@ -219,8 +220,9 @@ export default class Header extends Component{
                             <input placeholder='Shoes size (cm)' id='shoes'className='w-100 f4 pv2 mb4 mr2'/>
                             <input placeholder='Hair color' id='hair'className='w-100 f4 pv2 mb4 mr2'/>
                             <input placeholder='Eyes color' id='eyes'className='w-100 f4 pv2 mb4 mr2'/>
-                            <p className='black pointer dim b'  onClick={this.thirdStepUpdater}>
-                                Final Step
+                            <p className='black pointer dim flex items-center'  onClick={this.thirdStepUpdater}>
+                                <div id='arrowDown'></div>
+                                <p>Final Step</p>  
                             </p>
                         </div>
                         <div id='thirdStep' className='fl w-100'>

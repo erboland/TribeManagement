@@ -1,5 +1,6 @@
 import React from 'react';
 import ModelCard from '../PersonalitiesList/ModelCard';
+import {Link} from 'react-router-dom';
 
 const MyCastingSteps =({number, castings, newRequestRef})=> {
 
@@ -49,24 +50,35 @@ const MyCastingSteps =({number, castings, newRequestRef})=> {
     }
 
     if (number==0) {
-        return (
-            <div>
-                {castings.map(doc => {
-                    let objectDoc = JSON.parse(doc);
-                    return <ModelCard 
-                    key={objectDoc.id} 
-                    id={objectDoc.id}
-                    modelHeight={objectDoc.height}
-                    modelChest={objectDoc.chest}
-                    modelEyes={objectDoc.eyes}
-                    modelHair={objectDoc.hair}
-                    modelName={objectDoc.name}
-                    modelShoes={objectDoc.shoes}
-                    modelWaist={objectDoc.waist}
-                    />
-                })}
+        if (castings.length!==0){
+            return (
+                <div>
+                    {castings.map(doc => {
+                        let objectDoc = JSON.parse(doc);
+                        return <ModelCard 
+                        key={objectDoc.id} 
+                        id={objectDoc.id}
+                        modelHeight={objectDoc.height}
+                        modelChest={objectDoc.chest}
+                        modelEyes={objectDoc.eyes}
+                        modelHair={objectDoc.hair}
+                        modelName={objectDoc.name}
+                        modelShoes={objectDoc.shoes}
+                        modelWaist={objectDoc.waist}
+                        />
+                    })}
+                </div>
+            );
+        } else {
+            return (
+            <div className='pt1'>
+                <p><Link className='dim pointer black no-underline' to='/'>Send my casting...</Link></p>
+                <p className='gray'>Your casting is empty</p>
             </div>
-        );
+            )
+            
+        }
+        
     } else {
         return (
             <div>

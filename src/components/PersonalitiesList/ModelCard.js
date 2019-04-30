@@ -24,7 +24,7 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
                                         Hair: {modelHair} <br/>
                                         Eyes: {modelEyes}
                                     </p>
-                                    <Link to={"/model/"+id}className='link dim white underline f5'>View Portfolio</Link>
+                                    <Link to={"/model/"+id}className='link dim white underline f5' style={{'text-underline-position': 'under' }}>View Portfolio</Link>
                                 </div>
                             </div>
                         

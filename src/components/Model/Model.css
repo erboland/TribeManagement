@@ -1,0 +1,27 @@
+#addButton{
+    background: url(./UnmarkedStar.svg) no-repeat bottom right;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border:0
+}
+#removeButton{
+    background: url(./MarkedStar.svg) no-repeat bottom right;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border:0
+}
+#backArrow{
+    background: url(./ArrowLeft.svg) no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border:0
+}

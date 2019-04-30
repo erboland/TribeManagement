@@ -75,7 +75,7 @@ class App extends Component {
           <Route path='/model/:id' component={props=><Model {...props} isMobile={isMobile} database={this.database}/>}/>
           <Route path='/mycasting' component={props=><MyCasting {...props} isMobile={isMobile} database={this.database}/>}/>
           <Route path='/allmodels' component={props=><Personalities {...props} isMobile={isMobile} models={this.state.models} database={this.database} number={2}/>}/>
-          <Route path='/controlpanel' component={props=><Admin {...props} database={this.database}/>}/>
+          <Route path='/controlpanel' component={props=><Admin {...props} database={this.database} storage={this.storage}/>}/>
         </div>
         </Router>
         <Footer isMobile={isMobile}/>

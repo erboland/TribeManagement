@@ -63,8 +63,11 @@ export default class Personalities extends Component{
                 </div>
                 <PersonalitiesList isMobile={this.props.isMobile} models={this.props.models} database={this.props.database} number={this.props.number}/>
                 <div className='flex justify-center'>
-                    <Link className='mt3 black flex justify-center mb5 dim pointer b pa2' to='/allmodels' id='viewMore'>
-                        View more
+                    <Link className='mt3 black flex justify-center items-center mb5 dim pointer pa2 flex-column' to='/allmodels' id='viewMore'>
+                        <div className='w-100'>View more</div>
+                        <div className='w-100' id='viewMoreIcon'>
+                        </div>
+                        
                     </Link>
                 </div>
                 
