@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './BecomeModel.css';
 
 
+
 export default class Header extends Component{
     constructor () {
         super();
@@ -10,8 +11,47 @@ export default class Header extends Component{
         }
         this.secondStepUpdater = this.secondStepUpdater;
         this.thirdStepUpdater = this.thirdStepUpdater;
+        this.setRef=this.setRef.bind(this);
     }
 
+    componentDidMount(){
+        
+        this.setState({
+            newRequestRef: this.props.database.collection('requests')
+            })
+        if(this.props.isMobile){
+            document.getElementById('secondStep').style.display='none';
+            document.getElementById('finalStep').style.display='none';
+        } else {
+        document.getElementById('finalStep').style.display='none';
+        document.getElementById('thirdStep').style.display='none';
+        }
+    }
+
+    componentDidUpdate(){
+        if (this.state.step===1 ){
+            document.getElementById('second').style.color='black';
+        } else if (this.state.step===2){
+            document.getElementById('third').style.color='black';
+        }
+
+    }
+
+    setRef=(id, e)=>{  
+        if (e.target.files[0]){
+                const file = e.target.files[0];
+                const mainImage=this.props.storage.ref().child(file.name);
+                mainImage.put(file).then(snapshot=>{
+                    mainImage.getDownloadURL().then(url=>{
+                        console.log(url);
+                        this.setState({
+                            [id]: url
+                        })
+                    })
+                })       
+        }
+    }
+    
     secondStepUpdater=(e)=>{
         e.preventDefault();
         
@@ -67,13 +107,13 @@ export default class Header extends Component{
         let shoes=this.getInputVal('shoes');
         let eyes=this.getInputVal('eyes');
         let hair=this.getInputVal('hair');
-        let hso=this.getInputVal('hso');
-        let hp = this.getInputVal('hp');
-        let hhp = this.getInputVal('hhp');
-        let fbso=this.getInputVal('fbso');
-        let fbsp=this.getInputVal('fbsp');
+        let hso=this.state.hso;
+        let hp = this.state.hp;
+        let hhp = this.state.hhp;
+        let fbso=this.state.fbso;
+        let fbsp=this.state.fbsp;
         
-   
+        if (hso&&hp&&hhp&&fbso&&fbsp){
             if (!firstName&&!lastName&&!emailAdd&&!contact&&!city&&!country&&!birthDate&&!nationality&&!bustSize&&!waistSize&&!hipsSize&&!shoes&&!eyes&&!hair&&!hso&&!hp&&!hhp&&!fbso&&!fbsp){
                 alert('One or more parametres is empty');
             } else{
@@ -81,6 +121,11 @@ export default class Header extends Component{
                 alert('Your request has been sent!');
                 document.getElementById('becomeModelForm').reset();
             }
+        } else {
+            alert('Wait untill your pictures uploaded')
+        }
+   
+            
     }
     
     saveRequest=(firstName, lastName, emailAdd, contact, city, country, birthDate, nationality, bustSize, waistSize, hipsSize, shoes, eyes, hair, hso, hp, hhp, fbso, fbsp)=>{
@@ -106,29 +151,7 @@ export default class Header extends Component{
             "Waist size": waistSize
         })
     }
-    componentDidMount(){
-
-        this.setState({
-            newRequestRef: this.props.database.collection('requests')
-            })
-        console.log(this.props.isMobile);
-        if(this.props.isMobile){
-            document.getElementById('secondStep').style.display='none';
-            document.getElementById('finalStep').style.display='none';
-        } else {
-        document.getElementById('finalStep').style.display='none';
-        document.getElementById('thirdStep').style.display='none';
-        }
-    }
-
-    componentDidUpdate(){
-        if (this.state.step===1 ){
-            document.getElementById('second').style.color='black';
-        } else if (this.state.step===2){
-            document.getElementById('third').style.color='black';
-        }
-
-    }
+    
 
     pStepOne=(e)=>{
         e.preventDefault();
@@ -202,11 +225,11 @@ export default class Header extends Component{
                         </div>
                         <div id='thirdStep' className='fl w-100'>
                            
-                            <input placeholder='Headshot straight on' id='hso'className='pv2 f4 fl mb4 become_submit' style={{width: '47.5%'}}/>
-                            <input placeholder='Headshot profile' id='hp' className=' pv2 f4 fr mb4 become_submit' style={{width: '47.5%'}}/>
-                            <input placeholder='Headshot half profile' id='hhp' className='pv2 f4 fl mb4 become_submit' style={{width: '47.5%'}}/>
-                            <input placeholder='Full length body shot straight on' id='fbso' className=' pv2 f4 fr mb4 become_submit' style={{width: '47.5%'}}/>
-                            <input placeholder='Full length body shot profile'  id='fbsp' className=' pv2 f4 fl mb4 become_submit' style={{width: '47.5%'}}/>
+                            <input placeholder='Headshot straight on' id='hso'className='pv2 f4 fl mb4 become_submit' style={{width: '47.5%'}} type='file' onChange={(e)=>this.setRef('hso', e)}/>
+                            <input placeholder='Headshot profile' id='hp' className=' pv2 f4 fr mb4 become_submit' style={{width: '47.5%'}} type='file' onChange={(e)=>this.setRef('hp', e)}/>
+                            <input placeholder='Headshot half profile' id='hhp' className='pv2 f4 fl mb4 become_submit' style={{width: '47.5%'}}  type='file' onChange={(e)=>this.setRef('hhp', e)}/>
+                            <input placeholder='Full length body shot straight on' id='fbso' className=' pv2 f4 fr mb4 become_submit' style={{width: '47.5%'}} type='file' onChange={(e)=>this.setRef('fbso', e)}/>
+                            <input placeholder='Full length body shot profile'  id='fbsp' className=' pv2 f4 fl mb4 become_submit' style={{width: '47.5%'}} type='file' onChange={(e)=>this.setRef('fbsp', e)}/>
                             <p className='fl w-100'>
                                 <input className="b ph5 pv3 input-reset ba b--black bg-transparent grow pointer f6 fl w-30" type="submit" value="Send" onClick={this.submitForm}/>
                                 <p className='gray dim f5 fr w-50 pointer' onClick={this.previousStepUpdater}>Previous Step</p>
@@ -285,11 +308,11 @@ export default class Header extends Component{
                             <p className='f3'>
                                 Become a model 3/3
                             </p>
-                            <input placeholder='Headshot straight on' id='hso'className='pv2 f4 fl mb4 become_submit w-100' />
-                            <input placeholder='Headshot profile' id='hp' className=' pv2 f4 fr mb4 become_submit w-100'/>
-                            <input placeholder='Headshot half profile' id='hhp' className='pv2 f4 fl mb4 become_submit w-100'/>
-                            <input placeholder='Full length body shot straight on' id='fbso' className=' pv2 f4 fr mb4 become_submit w-100' />
-                            <input placeholder='Full length body shot profile'  id='fbsp' className=' pv2 f4 fl mb4 become_submit w-100'/>
+                            <input placeholder='Headshot straight on' id='hso'className='pv2 f4 fl mb4 become_submit w-100' type='file' onChange={(e)=>this.setRef('hso', e)}/>
+                            <input placeholder='Headshot profile' id='hp' className=' pv2 f4 fr mb4 become_submit w-100' type='file' onChange={(e)=>this.setRef('hp', e)}/>
+                            <input placeholder='Headshot half profile' id='hhp' className='pv2 f4 fl mb4 become_submit w-100' type='file' onChange={(e)=>this.setRef('hhp', e)}/>
+                            <input placeholder='Full length body shot straight on' id='fbso' className=' pv2 f4 fr mb4 become_submit w-100' type='file' onChange={(e)=>this.setRef('fbso', e)}/>
+                            <input placeholder='Full length body shot profile'  id='fbsp' className=' pv2 f4 fl mb4 become_submit w-100' type='file' onChange={(e)=>this.setRef('fbsp', e)}/>
                             <p className='fl ph3 pv1 ba grow' onClick={this.pStepTwo}>
                                 Previous step
                             </p>

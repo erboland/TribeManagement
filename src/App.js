@@ -5,6 +5,7 @@ import 'tachyons';
 import firebase from 'firebase';
 import {DB_CONFIG} from './Config';
 import 'firebase/firestore';
+import 'firebase/storage';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -31,6 +32,8 @@ class App extends Component {
 
     this.app=firebase.initializeApp(DB_CONFIG);
     this.database=firebase.firestore();
+    this.storage=firebase.storage();
+    
   }
   componentWillMount() {
     window.addEventListener('resize', this.handleWindowSizeChange);
@@ -57,6 +60,7 @@ class App extends Component {
   
 
   render() {
+
     const { width } = this.state;
     const isMobile = width <= 500;
 
@@ -66,7 +70,7 @@ class App extends Component {
         <Header isMobile={isMobile}/>
         <div className='main'>
           <Route exact path='/' component={props=><Personalities {...props} isMobile={isMobile} models={this.state.models} database={this.database} number={1}/>}/>
-          <Route path='/becomemodel' component={props=><BecomeModel {...props} isMobile={isMobile} database={this.database}/>}/>
+          <Route path='/becomemodel' component={props=><BecomeModel {...props} isMobile={isMobile} database={this.database} storage={this.storage}/>}/>
           <Route path='/contacts' component={props=><Contacts {...props} isMobile={isMobile} database={this.database}/>}/>
           <Route path='/model/:id' component={props=><Model {...props} isMobile={isMobile} database={this.database}/>}/>
           <Route path='/mycasting' component={props=><MyCasting {...props} isMobile={isMobile} database={this.database}/>}/>

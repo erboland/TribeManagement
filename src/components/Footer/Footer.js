@@ -35,8 +35,8 @@ export default class Footer extends Component{
                 </footer>
             )
         } else {
-            return (<footer className='flex items-center justify-center'>
-                <p className='tc white f5'>
+            return (<footer className='flex items-center justify-center mb0'>
+                <p className='tc white f5 lh-copy'>
                     Tribe Management office: <br/>
                     60 Avenue François Clément L5612 <br/>
                     Mondorf Les Bains LUXEMBOURG<br/>
