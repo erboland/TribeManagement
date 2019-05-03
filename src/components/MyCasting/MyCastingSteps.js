@@ -65,6 +65,7 @@ const MyCastingSteps =({number, castings, newRequestRef})=> {
                         modelName={objectDoc.name}
                         modelShoes={objectDoc.shoes}
                         modelWaist={objectDoc.waist}
+                        isCasting={true}
                         />
                     })}
                 </div>
@@ -82,14 +83,17 @@ const MyCastingSteps =({number, castings, newRequestRef})=> {
     } else {
         return (
             <div>
-                <div className='feedback fr w-100 mt3'>
+                <div className='feedback fr w-100 mt3 '>
                 <form >
-                    <input placeholder='First Name' className='pv2 f4 fl mb4' style={{width: '47.5%'}} id='fn'/>
-                    <input placeholder='Last Name' className=' pv2 f4 fr mb4' style={{width: '47.5%'}} id='ln'/>
-                    <input placeholder='Email address' className='w-100 f4 pv2 mb4 mr2' id='email'/>
-                    <input placeholder='Contact address' className='w-100 f4 pv2 mb4 mr2' id='phone'/>
-                    <textarea placeholder='Leave a message' className='w-100 f4 pv2 mb4 mr2' id='msg'></textarea>
-                    <input className="b ph5 pv3 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Send" onClick={sendCastings}/>
+                    <input placeholder='First Name' className='pv2 f4 fl mr4 mb4 w-30'  id='fn'/>
+                    <input placeholder='Last Name' className=' pv2 f4 fl mb4 w-30'  id='ln'/>
+                    <input placeholder='Email address' className=' f4 pv2 mb4 mr2 w-60' style={{width: '64.5%'}}id='email'/>
+                    <input placeholder='Contact address' className='f4 pv2 mb4 mr2' style={{width: '64.5%'}} id='phone'/>
+                    <div className='w-100 '>
+                        <textarea placeholder='Leave a message' className=' f4 pv2 mb4 mr2' style={{width: '64.5%'}} id='msg'></textarea>
+                    </div>
+                    
+                    <input className="b ph5 pv3 input-reset ba b--black bg-transparent grow pointer f6 fl" type="submit" value="Send" onClick={sendCastings}/>
                 </form>
                 </div>
             </div>

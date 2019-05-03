@@ -18,8 +18,8 @@ import ModelCard from './ModelCard';
           const model = [];
           snap.forEach(doc => {
             let id=doc.id;
-            const { height, chest, eyes, hair, name, shoes, waist} = doc.data();
-            model.push({ height, chest, eyes, hair, name, shoes, waist, id });
+            const { height, chest, eyes, hair, name, shoes, waist, MainPicture} = doc.data();
+            model.push({ height, chest, eyes, hair, name, shoes, waist, id, MainPicture });
           });
           this.setState({ model });
         });
@@ -35,8 +35,17 @@ import ModelCard from './ModelCard';
       firstDisplayParser=()=>{
         let table=[];
         let modelsNumber = this.props.isMobile? 3: 7;
-        for (let i=0; i<=modelsNumber; i++){
+        let actualModelsNumber=()=>{
+          if (this.state.model.length<=modelsNumber){
+            return this.state.modelsNumber
+          } else {
+            return modelsNumber
+          }
+        }
+        for (let i=0; i<=actualModelsNumber(); i++){
+          
           let doc = this.state.model[i];
+          console.log(doc.MainPicture);
           table.push(<ModelCard 
             key={doc.id} 
             id={doc.id}
@@ -47,6 +56,7 @@ import ModelCard from './ModelCard';
             modelName={doc.name}
             modelShoes={doc.shoes}
             modelWaist={doc.waist}
+            mainImg={doc.MainPicture}
             />)
         }
         return table
@@ -73,6 +83,7 @@ import ModelCard from './ModelCard';
                   <div className="cf pa2 pl0 pr3">
                   
                   {this.state.model.map(doc => {
+                    console.log(doc.MainPicture);
                     return <ModelCard 
                     key={doc.id} 
                     id={doc.id}
@@ -83,6 +94,7 @@ import ModelCard from './ModelCard';
                     modelName={doc.name}
                     modelShoes={doc.shoes}
                     modelWaist={doc.waist}
+                    mainImg={doc.MainPicture}
                     />
                   })}
                   </div>

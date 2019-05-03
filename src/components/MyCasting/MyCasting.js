@@ -104,7 +104,7 @@ export default class MyCasting extends Component {
             return (
                 <div className='cf'>
                     <div id='castings'>
-                        <p className='f4 pl2'>My casting overview</p>
+                        <p className='f4'>My casting overview</p>
                         <MyCastingSteps number={this.state.key} castings={this.state.castings} className='mt3 '/>
                         <div className='flex justify-center w-100'>
                             <input className="b ph5 pv3 input-reset ba b--black bg-transparent grow pointer f6 mt3" type="submit" value="Submit" onClick={this.nextStep}/>
@@ -120,7 +120,7 @@ export default class MyCasting extends Component {
                         <input placeholder='Email address' type='email' className='w-100 f4 pv2 mb4 mr2' id='email' required/>
                         <input placeholder='Contact Phone number' className='w-100 f4 pv2 mb4 mr2' id='phone'/>
                         <textarea placeholder='Leave a message' className='w-100 f4 pv2 mb4 mr2' id='msg' required></textarea>
-                        <input className="b ph5 pv3 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Send"  onClick={this.sendCastings}/>
+                        <input className=" ph5 pv3 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Send"  onClick={this.sendCastings}/>
                     </form>
                     </div>
                 </div>

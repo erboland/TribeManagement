@@ -20,12 +20,9 @@ section {
 }
 
 #arrowRight{
-    background: url(./ArrowRight.svg) no-repeat;
-    background-size: contain;
-
+    background: url(./ArrowRight.svg) no-repeat scroll;
+    background-position: right;
     cursor: pointer;
-    display: inline-block;
-    height: 40px;
-    width: 40px;
+    border-bottom: white;
     border:0
 }

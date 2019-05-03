@@ -35,16 +35,16 @@ class App extends Component {
     this.storage=firebase.storage();
     
   }
-  componentWillMount() {
-    window.addEventListener('resize', this.handleWindowSizeChange);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleWindowSizeChange);
-  }
+  // componentWillMount() {
+  //   window.addEventListener('resize', this.handleWindowSizeChange);
+  // }
+  // componentWillUnmount() {
+  //   window.removeEventListener('resize', this.handleWindowSizeChange);
+  // }
 
-  handleWindowSizeChange = () => {
-    this.setState({ width: window.innerWidth });
-  };
+  // handleWindowSizeChange = () => {
+    
+  // };
 
   componentDidMount () {
     this.database.collection('models').doc('Otto').get()
@@ -53,7 +53,7 @@ class App extends Component {
         model: snap.data()
       });
     })
-    
+    this.setState({ width: window.innerWidth });
   
 
   }

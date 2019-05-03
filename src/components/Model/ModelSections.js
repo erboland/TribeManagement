@@ -87,25 +87,26 @@ const ModelSections = ({number, modelInfo, isMobile})=>{
                         <div className='model_picture fl w-60-m w-60-l w-100'>
                         <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt4' src='http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png'/>
                         </div>
-                        <div className='fl w-100 mt3'>
-                            <p className='lh-copy f3'>
-                                Height: {modelInfo.height} cm
-                                <div className='fr'>
-                                Chest: {modelInfo.chest} cm
-                                </div>
+
+                        <div className='fl w-50 mt3'>
+                            <p className='lh-copy f4'>
+                                Height: {modelInfo.height} cm                               
                                 <br/>
-                                Waist: {modelInfo.waist} cm
-                                <div className='fr'>
-                                Shoes: {modelInfo.shoes} cm
-                                </div>
+                                Waist: {modelInfo.waist} cm                                
                                 <br/>
-                                Hair: {modelInfo.hair}
-                                <div className='fr'>
-                                Eyes: {modelInfo.eyes}
-                                </div>
-                                
+                                Hair: {modelInfo.hair}                          
                             </p>
                         </div>
+                        <div className='fl w-50 mt3'>
+                        <p className='lh-copy f4'>
+                                Chest: {modelInfo.chest} cm
+                                <br/>
+                                Shoes: {modelInfo.shoes} cm
+                                <br/>
+                                Eyes: {modelInfo.eyes} 
+                            </p>
+                        </div>
+
                     </div>
                 );
             }

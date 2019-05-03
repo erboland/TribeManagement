@@ -80,8 +80,8 @@ export default class Model extends Component{
             return (
                 <div className='cf main'>
                     <nav className="fl w-30 mb6 mt3 cf">
-                        <p className='b f2 pa2 pl4 mb5'>
-                            {this.state.model.name} <button onClick={this.addToCart}id='addButton'></button>
+                        <p className='b f2 pa2 pl4 mb5 flex items-center'>
+                            {this.state.model.name} <button onClick={this.addToCart}id='addButton' style={{height: '1.5rem', width:'1.5rem'}}></button>
                         </p>
                         <ul className='list pl4'>
                                 <li className='black f4 pv1 mb4 link dim pa2 pt0 pl0 pointer'  onClick={()=>this.changeKey(0)}>Characteristic</li>
@@ -103,7 +103,7 @@ export default class Model extends Component{
         } else {
             return (
                 <div>
-                    <p className='f3 b'>{this.state.model.name}</p>
+                    <p className='f3 b flex items-center'>{this.state.model.name} <button onClick={this.addToCart}id='addButton' style={{height: '1.5rem', width:'1.5rem'}}></button></p>
                     <Dropdown  options={this.state.options} onChange={this.changeNumber} value={defaultOption} placeholder="Select an option" />
                     <ModelSections number={this.state.key} modelInfo={this.state.model} isMobile={this.props.isMobile} style={{height: '40vh'}}/>
                 </div>

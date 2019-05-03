@@ -18,6 +18,8 @@ export default class Personalities extends Component{
             document.getElementById('viewMore').style.borderStyle='solid';
             document.getElementById('viewMore').style.width='30vw';
             document.getElementById('viewMore').style.borderWidth='1px';
+            document.getElementById('viewMoreIcon').style.display='none';
+            document.getElementById('viewMore').style.textAlign='center';
         }
     }
 

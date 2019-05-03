@@ -14,8 +14,7 @@ export default class Footer extends Component{
                                 Newsletter
                             </p>
                             <div>
-                                <input placeholder="Email Address" className="mw-100 w-100 w5-ns f5 input-reset pv3  input_email pr5"/>
-                                <div id='arrowRight'></div>
+                                <input placeholder="Email Address" className="mw-100 w-100 w5-ns f5 input-reset pv3  input_email pr5" id='arrowRight'/>
                             </div>
                         </div>
                         <div className='fr w-15 pl5 pr4'>
@@ -34,7 +33,7 @@ export default class Footer extends Component{
                 </footer>
             )
         } else {
-            return (<footer className='flex items-center justify-center mb0'>
+            return (<footer className='flex items-center justify-center mb0 pv3 mt4'>
                 <p className='tc white f5 lh-copy'>
                     Tribe Management office: <br/>
                     60 Avenue François Clément L5612 <br/>

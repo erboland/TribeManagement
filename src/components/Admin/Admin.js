@@ -59,6 +59,7 @@ export default class Admin extends Component {
         let shoes=this.getInputVal('shoes');
         let eyes=this.getInputVal('eyes');
         let hair=this.getInputVal('hair');
+        let height=this.getInputVal('height');
         let hso=this.state.hso;
         let hp = this.state.hp;
         let hhp = this.state.hhp;
@@ -69,7 +70,7 @@ export default class Admin extends Component {
             if (!firstName&&!lastName&&!bustSize&&!waistSize&&!hipsSize&&!shoes&&!eyes&&!hair&&!hso&&!hp&&!hhp&&!fbso&&!fbsp){
                 alert('One or more parametres is empty');
             } else{
-                this.saveRequest(firstName, lastName, bustSize, waistSize, hipsSize, shoes, eyes, hair, hso, hp, hhp, fbso, fbsp);
+                this.saveRequest(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, hp, hhp, fbso, fbsp);
                 alert('Your request has been sent!');
                 document.getElementById('becomeModelForm').reset();
             }
@@ -80,30 +81,32 @@ export default class Admin extends Component {
             
     }
     
-    saveRequest=(firstName, lastName, bustSize, waistSize, hipsSize, shoes, eyes, hair, hso, hp, hhp, fbso, fbsp)=>{
+    saveRequest=(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, hp, hhp, fbso, fbsp)=>{
         this.state.newRequestRef.add ({
-            "First Name":firstName, 
+            "name":firstName, 
             "Last Name": lastName,  
-            "Bust size": bustSize,
-            "Eyes": eyes,
-            "Full length body shot profile": fbsp,
+            "chest": bustSize,
+            "eyes": eyes,
+            "Full length body shot profile": fbsp?fbsp:'none',
             "Full length body shot straight on": fbso,
-            "Hair": hair,
-            "Headshot Straight on": hso,
+            "hair": hair,
+            "MainPicture": hso,
             "Headshot half profile":hhp , 
             "Headshot profile": hp,
-            "Hips": hipsSize, 
-            "Shoes": shoes,
-            "Waist size": waistSize
+            "hips": hipsSize, 
+            "shoes": shoes,
+            "waist": waistSize, 
+            "height": height
         })
     }
 
     render(){
         return (
             <div className='cf'>
-                <form>
+                <form id='becomeModelForm'>
                     <input placeholder='First Name' className='pv2 f4 fl mb4' style={{width: '47.5%'}} id='fn'/>
                     <input placeholder='Last Name' className=' pv2 f4 fr mb4' style={{width: '47.5%'}} id='ln'/>
+                    <input placeholder='Height (cm)' id='height' className='w-100 f4 pv2 mb4 mr2'/>
                     <input placeholder='Bust size (cm)' id='bust' className='w-100 f4 pv2 mb4 mr2'/>
                     <input placeholder='Waist size (cm)' id='waist' className='w-100 f4 pv2 mb4 mr2'/>
                     <input placeholder='Hips size (cm)' id='hips'className='w-100 f4 pv2 mb4 mr2'/>
