@@ -1,5 +1,6 @@
 import React from 'react';
 import Instafeed from 'instafeed.js';
+import {Link} from 'react-router-dom';
 
 const ContactsChoice = ({number, database, isMobile}) => {
     let newMessageRef = database.collection('messages');
@@ -20,6 +21,7 @@ const ContactsChoice = ({number, database, isMobile}) => {
                         <div className='gray'>
                             16, rue de la Grange Batelière <br/>
                             75009 Paris - FRANCE<br/> <br/>
+                            <Link to='/controlpanel' className='gray dim pointer'>A</Link> <br/>
                             +33 (3)3 33 33 33 33<br/>
                             +33 (3)3 33 33 33 33<br/> <br/>
                             tribe@management.lu

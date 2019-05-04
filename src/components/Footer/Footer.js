@@ -26,7 +26,7 @@ export default class Footer extends Component{
                         </div>
                         <div className="fr w-30" style={{lineHeight:'1.5'}}>
                             <p className='f4 mv0'>
-                                Tribe Management office<br/>60 Avenue François Clément<br/>L5612<br/>Mondorf Les Bains LUXEMBOURG<br/>+33 (3)3 33 33 33 33<br/><Link to='/controlpanel' className='white dim pointer'>A</Link>
+                                Tribe Management office<br/>60 Avenue François Clément<br/>L5612<br/>Mondorf Les Bains LUXEMBOURG<br/>+33 (3)3 33 33 33 33<br/>
                             </p>
                         </div>
                         
