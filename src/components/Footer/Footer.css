@@ -20,9 +20,10 @@ section {
 }
 
 #arrowRight{
-    background: url(./ArrowRight.svg) no-repeat scroll;
-    background-position: right;
+    background: url(./ArrowRight.svg) no-repeat center ;
     cursor: pointer;
+    fill: black;
     border-bottom: white;
-    border:0
+    border:0;
+    text-decoration: underline;
 }

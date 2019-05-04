@@ -58,9 +58,15 @@ export default class Header extends Component{
                     <Link className="link dim black    f6 f5-ns dib" to='/contacts' title="Contact" id='3'onClick={()=>this.keyFixer(3)}>Contacts</Link>
                     <Link className="link dim black    f6 f5-ns dib fr " to='/mycasting' title="My casting">My casting ({this.state.cart?this.state.cart.length:0})</Link>
                 </div>
-                <div className="navNarrow pt3">
+                <div className="navNarrow pt3 ">
+                    <div className='flex items-center'>
                     <Link className="link dim black b f6 f5-ns dib mr3 " to="/" title="Home" style={{fontSize: '3vh'}} >Tribe Management</Link>
-					<i className="fa fa-bars fa-2x" onClick={this.burgerToggle}></i>
+                    <div className='fr'>
+                    <i className="fa fa-bars fa-2x flex-end fr" onClick={this.burgerToggle}></i>
+                    </div>
+					
+                    </div>
+                    
 					<div className="narrowLinks">
                     <Link className="link dim black  f6 f5-ns dib mr3 pl4" to="/" title="Home" id='0' onClick={()=>this.keyFixer(0)} style={{marginTop: '2vh'}}>Personalities</Link>
 					<Link className="link dim black    f6 f5-ns dib mr3" to='/becomemodel' title="Store" id='2' onClick={()=>this.keyFixer(2)}>Become a model</Link>

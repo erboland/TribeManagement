@@ -13,8 +13,8 @@ export default class Footer extends Component{
                             <p className="f3 fw6 mb2 mt0">
                                 Newsletter
                             </p>
-                            <div>
-                                <input placeholder="Email Address" className="mw-100 w-100 w5-ns f5 input-reset pv3  input_email pr5" id='arrowRight'/>
+                            <div className='flex items-center'>
+                                <input placeholder="Email Address" className="mw-100 w-100 w5-ns f5 input-reset pv3  input_email pr5"/><button id='arrowRight' style={{height: '2.5rem', width:'2.5rem'}}></button>
                             </div>
                         </div>
                         <div className='fr w-15 pl5 pr4'>
