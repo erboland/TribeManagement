@@ -35,14 +35,17 @@ import ModelCard from './ModelCard';
       firstDisplayParser=()=>{
         let table=[];
         let modelsNumber = this.props.isMobile? 3: 7;
+        var actualModels=0;
         let actualModelsNumber=()=>{
           if (this.state.model.length<=modelsNumber){
-            return this.state.modelsNumber
+            actualModels=this.state.model.length;
           } else {
-            return modelsNumber
+            actualModels=modelsNumber
           }
         }
-        for (let i=0; i<=actualModelsNumber(); i++){
+        actualModelsNumber();
+        console.log(actualModels)
+        for (let i=0; i<actualModels; i++){
           
           let doc = this.state.model[i];
           console.log(doc.MainPicture);

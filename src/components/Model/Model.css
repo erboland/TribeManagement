@@ -26,3 +26,44 @@
     width: 40px;
     border:0
 }
+.albumPhoto {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .albumPhoto img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .albumPhoto:after {
+    content: '';
+    display:inline-block;
+    vertical-align: top;
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+  }
+
+/* #image{
+	position: absolute;
+	top:0.5rem;
+	left:0.5rem;
+	right: 0.5rem;
+	bottom: 0.5rem;
+}
+.model_picture{
+    position: relative;
+    overflow: hidden;
+
+}
+.model_picture:after{
+	content: '';
+	display:inline-block;
+	vertical-align: top;
+	width: 90%;
+	height: 0;
+	padding-top: 100%;
+	
+} */
