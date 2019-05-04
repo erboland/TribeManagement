@@ -56,12 +56,13 @@ const ModelSections = ({number, modelInfo, isMobile})=>{
         }
     } else {
         if (number===0) {
+            let mainImage=modelInfo.MainPicture?modelInfo.MainPicture:'http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png';
             if (modelInfo){
                 return (
                 
                     <div className='cf'>
                         <div className='model_picture fl w-60-m w-60-l w-100'>
-                        <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt4' src='http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png'/>
+                        <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt4' src={mainImage}/>
                         </div>
 
                         <div className='fl w-50 mt3'>
@@ -85,40 +86,45 @@ const ModelSections = ({number, modelInfo, isMobile})=>{
 
                     </div>
                 );
+            } else {
+                return (
+                
+                    <div className='cf'>
+                        <div className='model_picture fl w-60-m w-60-l w-100'>
+                        <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt4' src='http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png'/>
+                        </div>
+                        <div className='fl w-40 mt6 pl5'>
+                            <p className='lh-copy'>
+                                Height: ... cm <br/>
+                                Chest: ... cm<br/>
+                                Waist: ... cm<br/>
+                                Shoes: ... cm<br/>
+                                Hair: ...<br/>
+                                Eyes: ...
+                            </p>
+                        </div>
+                    </div>
+                );
+            }
+            
+        } else if (number===1) {
+            let generateImages=()=>{
+                let table = [];
+                for (let i=0; i<modelInfo.images.length;i++){
+                    table.push(
+                        <div className='model_picture fl w-55' >
+                            <img src={modelInfo.images[i]} className='hoverBox_layer_bottom w-100 db outline black-10 mt4'/>
+                        </div>
+                        
+                    )
+                }
+                console.log(table);
+                return table;
             }
             return (
-                
-                <div className='cf'>
-                    <div className='model_picture fl w-60-m w-60-l w-100'>
-                    <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt4' src='http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png'/>
-                    </div>
-                    <div className='fl w-40 mt6 pl5'>
-                        <p className='lh-copy'>
-                            Height: ... cm <br/>
-                            Chest: ... cm<br/>
-                            Waist: ... cm<br/>
-                            Shoes: ... cm<br/>
-                            Hair: ...<br/>
-                            Eyes: ...
-                        </p>
-                    </div>
-                </div>
-            );
-        } else if (number===1) {
-            return (
                 <div className=' cf'>
-                    <div className='model_picture fl w-55'>
-                    <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt4' src='http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png'/>
-                    </div>
-                    <div className='model_picture fl w-55'>
-                    <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt4' src='http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png'/>
-                    </div>
-                    <div className='model_picture fl w-55'>
-                    <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt4 mb4' src='http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png'/>
-                    </div>
-                    
-    
-                    </div>  
+                    {generateImages()}
+                 </div>  
                 
                 
     );
