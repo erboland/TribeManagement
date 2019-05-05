@@ -95,7 +95,9 @@ export default class Admin extends Component {
                 this.setState({
                     images: [],
                     allImages: 0
-                })
+                }),
+                document.getElementById('lhso').style.color='gray';
+                document.getElementById('lpdf').style.color='gray';
             }
         } else {
             alert('Wait untill your pictures uploaded')
