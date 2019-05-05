@@ -50,18 +50,16 @@ export default class Contacts extends Component{
                     <nav className="fl w-25 mb6 mt3">
                     <ul className='list'>
                             <li className='gray f4 pb2 mb3 link dim pa2 pt0 pl0 pointer' onClick={()=>this.keyFixer(0)} id='0'color={{}}> Contacts</li>
-                            <li className='gray f4 pv2 mb3 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(1)} id='1'>Feedback</li>
                             <li className='gray f4 pv2 mb3 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(2)} id='2'>Social Media</li>
                     </ul>
                     </nav> 
-                    <ContactsChoice number={this.state.key} database={this.props.database} isMobile={this.props.isMobile} className=''/>
+                    <ContactsChoice number={this.state.key} database={this.props.database} isMobile={this.props.isMobile}/>
                 </div>
                 
             )
         } else {
             return (
                 <div className='cf'>
-                    <Dropdown  options={this.state.options} onChange={this.changeNumber} value={defaultOption} placeholder="Select an option" />
                     <ContactsChoice number={this.state.key} database={this.props.database} isMobile={this.props.isMobile}/>
                 </div>
             )

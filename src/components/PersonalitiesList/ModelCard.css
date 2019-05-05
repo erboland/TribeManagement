@@ -14,7 +14,7 @@
 }
 
 .hoverBox:hover .hoverBox_layer_top,
-.hovrBox.active .hoverBox_layer_top {
+.hovrBox:active .hoverBox_layer_top {
 	opacity: 1;
 }
 

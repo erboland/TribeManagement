@@ -7,12 +7,19 @@ import './Personalities.css';
 
 export default class Personalities extends Component{
 
+    constructor(){
+        super();
+        this.state={
+            letter: "",
+            page: 0
+        }
+    }
     componentDidMount(){
-        if(this.props.number==2){
+        if(this.props.number==2||this.props.number==3||this.props.number==4){
             document.getElementById('viewMore').style.display='none';
         }
         document.getElementById('viewMore').style.textDecoration='none';
-
+        
         if(this.props.isMobile){
             document.getElementById('personalities_alphabet').style.display='none';
             document.getElementById('viewMore').style.borderStyle='solid';
@@ -21,18 +28,17 @@ export default class Personalities extends Component{
             document.getElementById('viewMoreIcon').style.display='none';
             document.getElementById('viewMore').style.textAlign='center';
         }
+        
     }
-
-
     
     render () {
         return (
             <div className="personalities_desktop pl3">
                 <div className="personalities_types mt4 pv3 pl2"> 
-                    <a className="link mr3 dim black pointer" >Main board</a>
-                    <a className="link mr2 dim gray pointer" >New faces</a>
-                    <a className="link mr2 dim gray pointer">Dancers</a>
-                    <a className="link mr2 dim gray pointer">All</a>
+                    <Link to='/' className="link mr3 dim pointer black" id='1'>Main board</Link>
+                    <Link to='/newfaces' className="link mr3 dim pointer black" id='3'>New faces</Link>
+                    <Link to='/dancers'className="link mr3 dim  pointer black" id='4'>Dancers</Link>
+                    <Link className="link mr3 dim pointer black" to='/allmodels' id='2'>All</Link>
                 </div>
                 <div id="personalities_alphabet" className='pl2'>
                     <a className="link mr2 dim gray" href='#'>a</a>
@@ -62,13 +68,12 @@ export default class Personalities extends Component{
                     <a className="link mr2 dim gray" href='#'>y</a>
                     <a className="link mr2 dim gray" href='#'>z</a>
                 </div>
-                <PersonalitiesList isMobile={this.props.isMobile} models={this.props.models} database={this.props.database} number={this.props.number}/>
+                <PersonalitiesList isMobile={this.props.isMobile}  database={this.props.database} number={this.props.number}/>
                 <div className='flex justify-center'>
                     <Link className='mt3 black flex justify-center items-center mb5 dim pointer pa2 flex-column' to='/allmodels' id='viewMore'>
                         <div className='w-100'>View more</div>
                         <div className='w-100' id='viewMoreIcon'>
                         </div>
-                        
                     </Link>
                 </div>
                 

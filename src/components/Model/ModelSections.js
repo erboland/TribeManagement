@@ -2,7 +2,7 @@ import React from 'react';
 import ModelGrid from './ModelGrid';
 
 const ModelSections = ({number, modelInfo, isMobile})=>{
-    let image=modelInfo.MainPicture?modelInfo.MainPicture:'http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png';
+    let image=modelInfo.MainPicture;
     if (!isMobile){
         if (number===0) {
             if (modelInfo){
@@ -50,13 +50,13 @@ const ModelSections = ({number, modelInfo, isMobile})=>{
         } else {
             return (
                 <div className='fl w-100 mt6 pt4' style={{height: '30vh'}}>
-                    Download <b className='dim pointer'>PDF</b>
+                    Download <a className='dim pointer b black no-underline' href={modelInfo.pdf}>PDF</a>
                 </div>
             );
         }
     } else {
         if (number===0) {
-            let mainImage=modelInfo.MainPicture?modelInfo.MainPicture:'http://is4.mzstatic.com/image/thumb/Music62/v4/93/8f/75/938f7536-0188-f9ba-4585-0a77ceaebf0a/source/400x40000bb.png';
+            let mainImage=modelInfo.MainPicture;
             if (modelInfo){
                 return (
                 

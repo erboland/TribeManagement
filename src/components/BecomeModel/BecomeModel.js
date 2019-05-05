@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './BecomeModel.css';
+import * as emailjs from 'emailjs-com';
 
 
 
@@ -15,10 +16,6 @@ export default class Header extends Component{
     }
 
     componentDidMount(){
-        
-        this.setState({
-            newRequestRef: this.props.database.collection('requests')
-            })
         if(this.props.isMobile){
             document.getElementById('secondStep').style.display='none';
             document.getElementById('finalStep').style.display='none';
@@ -114,14 +111,49 @@ export default class Header extends Component{
         let hhp = this.state.hhp;
         let fbso=this.state.fbso;
         let fbsp=this.state.fbsp;
+
+        let template_params = {
+            "email": emailAdd,
+            "first_name": firstName,
+            "last_name": lastName,
+            "city": city,
+            "country": country,
+            "phone": contact,
+            "date": birthDate,
+            "nationality": nationality,
+            "height": height,
+            "bust": bustSize,
+            "waist": waistSize,
+            "hips": hipsSize,
+            "shoes": shoes,
+            "hair": hair,
+            "eyes": eyes,
+            "hso": hso,
+            "hhp": hhp,
+            "fbsp": fbsp,
+            "hp": hp,
+            "fbso": fbso
+         }
+         
+         let service_id = "default_service";
+         let template_id = "template_1RPnk64V";
+         
+
         
         if (hso&&hp&&hhp&&fbso&&fbsp){
             if (!firstName&&!lastName&&!emailAdd&&!contact&&!city&&!country&&!birthDate&&!nationality&&!bustSize&&!waistSize&&!hipsSize&&!shoes&&!eyes&&!hair&&!hso&&!hp&&!hhp&&!fbso&&!fbsp){
                 alert('One or more parametres is empty');
             } else{
-                this.saveRequest(firstName, lastName, emailAdd, contact, city, country, birthDate, nationality, height, bustSize, waistSize, hipsSize, shoes, eyes, hair, hso, hp, hhp, fbso, fbsp);
-                alert('Your request has been sent!');
-                document.getElementById('becomeModelForm').reset();
+                emailjs.send(service_id, template_id, template_params, "user_SaASf2XDhCvZyY5IzHX2e").then(()=>{
+                    alert('Your request has been sent!');
+                    document.getElementById('becomeModelForm').reset();
+                    document.getElementById('lhso').style.color='black';
+                    document.getElementById('lhhp').style.color='black';
+                    document.getElementById('lfbsp').style.color='black';
+                    document.getElementById('lfbso').style.color='black';
+                    document.getElementById('lhp').style.color='black';
+                })
+                
             }
         } else {
             alert('Wait untill your pictures uploaded')
@@ -130,30 +162,6 @@ export default class Header extends Component{
             
     }
     
-    saveRequest=(firstName, lastName, emailAdd, contact, city, country, birthDate, nationality, height, bustSize, waistSize, hipsSize, shoes, eyes, hair, hso, hp, hhp, fbso, fbsp)=>{
-        this.state.newRequestRef.add ({
-            "First Name":firstName, 
-            "Last Name": lastName, 
-            "Email" :emailAdd, 
-            "Phone number": contact,
-            "Birth date": birthDate,
-            "Bust size": bustSize,
-            "City": city,
-            "Country": country,
-            "Eyes": eyes,
-            "Full length body shot profile": fbsp,
-            "Full length body shot straight on": fbso,
-            "Hair": hair,
-            "Headshot Straight on": hso,
-            "Headshot half profile":hhp , 
-            "Headshot profile": hp,
-            "Hips": hipsSize, 
-            "Shoes": shoes,
-            "Nationality": nationality, 
-            "Waist size": waistSize, 
-            "Height": height
-        })
-    }
     
 
     pStepOne=(e)=>{

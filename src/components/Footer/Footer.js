@@ -36,10 +36,9 @@ export default class Footer extends Component{
         } else {
             return (<footer className='flex items-center justify-center mb0 pv3 mt4'>
                 <p className='tc white f5 lh-copy'>
-                    Tribe Management office: <br/>
-                    60 Avenue François Clément L5612 <br/>
-                    Mondorf Les Bains LUXEMBOURG<br/>
-                    +33 (3)3 33 33 33 33
+                    Tribe Management <br/>
+                    <a className='white no-underline pointer dim' href='mailto:contact@tribemanagement.lu'>Contact@tribemanagement.lu</a><br/>
+                    <a className='white no-underline pointer dim' href='https://www.instagram.com/tribe.management/'>Instagram</a><br/>
                     
                 </p>
 

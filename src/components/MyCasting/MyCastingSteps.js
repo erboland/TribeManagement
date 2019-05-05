@@ -1,6 +1,7 @@
 import React from 'react';
 import ModelCard from '../PersonalitiesList/ModelCard';
 import {Link} from 'react-router-dom';
+import * as emailjs from 'emailjs-com';
 
 const MyCastingSteps =({number, castings, newRequestRef})=> {
 
@@ -12,11 +13,32 @@ const MyCastingSteps =({number, castings, newRequestRef})=> {
         let email = getInputVal('email');
         let contactPhone=getInputVal('phone');
         let message=getInputVal('msg');
-        let casting=castings;
-        if (firstName&&lastName&&email&&contactPhone&&message&&casting){
-            console.log(casting)
-            saveCastings(firstName, lastName, email, contactPhone, message, casting);
-            alert('Your request has been sent');
+        let newCastingsArray=castings.map(casting=>{
+            let object=JSON.parse(casting)
+            let newCasting={ 
+                'URL': 'tribemanagement.lu/model/'+object.id
+            }
+            return JSON.stringify(newCasting)
+        })
+
+        var template_params = {
+            "email": email,
+            "firstName": firstName,
+            "lastName": lastName,
+            "phone": contactPhone,
+            "message": message,
+            "castings": newCastingsArray
+         }
+         
+         var service_id = "default_service";
+         var template_id = "send_castings";
+         
+
+        if (firstName&&lastName&&email&&contactPhone&&message&&newCastingsArray){
+            emailjs.send(service_id, template_id, template_params, "user_SaASf2XDhCvZyY5IzHX2e").then(()=>{
+                alert('Your request has been sent');
+            });
+            
             
         } else {
             alert('One or more fields are empty')
@@ -27,26 +49,6 @@ const MyCastingSteps =({number, castings, newRequestRef})=> {
 
     let getInputVal=(id) =>{
         return document.getElementById(id).value;
-    }
-
-    let saveCastings=(firstName, lastName, email, contactPhone, message, castings)=>{
-        let newCastingsArray=castings.map(casting=>{
-            let object=JSON.parse(casting)
-            let newCasting={
-                'Name': object.name, 
-                'ID': object.id
-            }
-            return JSON.stringify(newCasting)
-        })
-
-        newRequestRef.add({
-            'First name': firstName, 
-            "Last name": lastName, 
-            "Email": email, 
-            "Contact Phone": contactPhone, 
-            "Message": message, 
-            "Castings": newCastingsArray
-        })
     }
 
     if (number==0) {
@@ -66,6 +68,7 @@ const MyCastingSteps =({number, castings, newRequestRef})=> {
                         modelShoes={objectDoc.shoes}
                         modelWaist={objectDoc.waist}
                         isCasting={true}
+                        mainImg={objectDoc.MainPicture}
                         />
                     })}
                 </div>

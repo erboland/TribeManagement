@@ -82,13 +82,14 @@ export default class Admin extends Component {
         let hso=this.state.hso;
         let images=this.state.images;
         let pdf=this.state.pdf;
+        let type=this.getInputVal('type');
 
         
         if (hso&&images){
-            if (!firstName&&!lastName&&!bustSize&&!waistSize&&!hipsSize&&!shoes&&!eyes&&!hair&&!hso&&!images&&!pdf){
+            if (!firstName&&!lastName&&!bustSize&&!waistSize&&!hipsSize&&!shoes&&!eyes&&!hair&&!hso&&!images&&!pdf&&!type){
                 alert('One or more parametres is empty');
             } else{
-                this.saveRequest(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf);
+                this.saveRequest(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf, type);
                 alert('Your request has been sent!');
                 document.getElementById('becomeModelForm').reset();
                 this.setState({
@@ -103,7 +104,7 @@ export default class Admin extends Component {
             
     }
     
-    saveRequest=(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf)=>{
+    saveRequest=(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf, type)=>{
         this.state.newRequestRef.add ({
             "name":firstName, 
             "Last Name": lastName,  
@@ -116,7 +117,8 @@ export default class Admin extends Component {
             "waist": waistSize, 
             "height": height,
             "images": images, 
-            "pdf": pdf
+            "pdf": pdf,
+            "type": type
         })
     }
 
@@ -133,13 +135,18 @@ export default class Admin extends Component {
                     <input placeholder='Shoes size (cm)' id='shoes'className='w-100 f4 pv2 mb4 mr2'/>
                     <input placeholder='Hair color' id='hair'className='w-100 f4 pv2 mb4 mr2'/>
                     <input placeholder='Eyes color' id='eyes'className='w-100 f4 pv2 mb4 mr2'/>
-                    
-                    <p>Upload images </p>
+                    <select name='type' id='type'>
+                        <option value='newFace'>New Face</option>
+                        <option value='dancer'>Dancer</option>
+                    </select>
+                    <p className='b'>Upload Main Image </p>
                     <input placeholder='Headshot straight on' name='hso' id='hso'className='inputfile' type='file' onChange={(e)=>this.setRef('hso', e)}/>
                     <label for='hso' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lhso'>Main image</label>
+                    <p className='b'>Upload Portfolio Images </p>
                     <input placeholder='Headshot profile' id='images' className='inputfile' type='file' name='images' onChange={this.severalImages} multiple/>
-                    <label className=' pv2 f4 fr mb4 become_submit w-100 dim pointer' for='images'>Upload all the images</label>
+                    <label className=' pv2 f4 fr mb4 become_submit w-100 dim pointer' for='images'>Upload Portfolio images</label>
                     <p className='f3 mb2' id='imageStatus'>{this.state.images.length}/{this.state.allImages} uploaded</p>
+                    <p className='b'>Upload model PDF file</p>
                     <input name='pdf' id='pdf' className='inputfile' type='file' onChange={(e)=>this.setRef('pdf', e)}/>
                     <label for='pdf' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lpdf'>Upload PDF</label>
                     <input className="b pv3 input-reset ba b--black bg-transparent grow pointer f6 fl w-30" type="submit" value="Send" onClick={this.submitForm}/>
