@@ -24,7 +24,10 @@ export default class Model extends Component{
         }
            
 
+
     }
+
+
 
     componentDidMount(){
         
@@ -33,7 +36,6 @@ export default class Model extends Component{
               console.log('No such document!');
             } else {
                 let model= doc.data();
-                console.log(model);
                 model.id = this.props.match .params.id;
               this.setState({model});
             }

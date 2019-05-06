@@ -26,6 +26,24 @@
     width: 40px;
     border:0
 }
+#topArrow{
+    background: url(./ArrowTop.svg) no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border:0
+}
+#downArrow{
+    background: url(./ArrowDown.svg) no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border:0
+}
 .albumPhoto {
     position: relative;
     overflow: hidden;

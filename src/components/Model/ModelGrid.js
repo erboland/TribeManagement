@@ -5,23 +5,83 @@ export default class ModelGrid extends Component{
         super();
         
         this.state={
-            actualImages: []
+            actualImages: [],
+            page:0, 
+            arrow: 'down'
         }
         
     }
 
     generateImages=()=>{
+
         let table = [];
-        for (let i=0; i<this.state.actualImages.length;i++){
+        let imagesNumber=(this.state.page*6+5)<this.state.actualImages.length?this.state.page*6+5:this.state.actualImages.length-1;
+        for (let i=6*this.state.page; i<=imagesNumber;i++){
             table.push(
                 <div className='albumPhoto fl w-40 pa2 pt0 ba mr2 mb2 pointer' >
                     <img src={this.state.actualImages[i]} onClick={(e)=>this.setNewImage(i, e)}/>
                 </div>
-                
             )
         }
         return table;
     }
+    pageChange=(number, e)=>{
+        e.preventDefault();
+
+        if (number===1){
+            this.setState({
+                page: this.state.page-1
+            })
+        }else{
+            this.setState({
+                page: this.state.page+1
+            })
+        }
+        if (this.state.page===0){
+            this.setState({
+                arrow: 'down'
+            })
+        } else if (this.state.page>Math.round(this.props.images.length/6)){
+            this.setState({
+                arrow: "top"
+            })
+        } else {
+            this.setState({
+                arrow: "middle"
+            })
+        }
+        
+    }
+    arrowStatus = ()=>{
+        if (this.state.arrow==='down'){
+            return (
+                <div className='flex items-center justify-center w-90'>
+                <button onClick={e=>this.pageChange(0, e)} id='downArrow'></button>
+                </div>
+            )
+
+        } else if (this.state.arrow==='top'){
+            return (
+                <div className='flex items-center justify-center w-90'>
+                <button onClick={e=>this.pageChange(1, e)} id='topArrow'></button>
+                </div>
+            )
+        } else if(this.state.arrow==="middle"){
+            return (
+                <div className='flex items-center justify-center w-90'>
+                    <button onClick={e=>this.pageChange(0, e)} id='downArrow'></button>
+                    <button onClick={e=>this.pageChange(1, e)} id='topArrow'></button>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+
+                </div>
+            )
+        }
+    }
+
     setNewImage=(i, e)=>{
         this.setState({
             mainImage: this.state.actualImages[i]
@@ -35,18 +95,26 @@ export default class ModelGrid extends Component{
             actualImages: actualImages,
             mainImage: actualImages[0]
         })
+        
+        if (this.props.images.length<7){
+            this.setState({
+                arrow: 'none'
+            })
+        }
     }
     render(){
         return (
             <div className='pa3 pt0 cf'>
-                        <div className='model_picture fl w-50'>
-                        <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt5' src={this.state.mainImage}/>
-                        </div>
-                        <div className='model_grid fr w-40 mt5 flex flex-wrap'>
-                        {this.generateImages()}
-        
-                        </div>  
-                    </div>
+                <div className='model_picture fl w-50'>
+                    <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10 mt5' src={this.state.mainImage}/>
+                </div>
+                <div className='model_grid fr w-40 mt5 flex flex-wrap'>
+                    {this.generateImages()}
+                    {this.arrowStatus()}
+                </div>  
+                
+                
+            </div>
         )
     }
     

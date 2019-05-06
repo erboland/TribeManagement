@@ -8,8 +8,8 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
     let image=mainImg?mainImg:'http://is3.mzstatic.com/image/thumb/Music49/v4/b6/b0/a1/b6b0a1dd-998d-9786-ca2f-87470be15250/source/400x40000bb.png';
 
     return (
-                
-                    <div className={castingWidthClass} onClick=''>
+                    
+                    <div className={castingWidthClass}>
                         
                             <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10' id='image' src={image}/>
                             <div className='hoverBox_layer_top'>
