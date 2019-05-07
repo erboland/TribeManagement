@@ -104,12 +104,13 @@ export default class Admin extends Component {
         let images=this.state.images;
         let pdf=this.state.pdf;
         let type=this.getInputVal('type');
+        let as=this.getInputVal('as');
 
         
             if (!firstName&&!lastName&&!bustSize&&!waistSize&&!hipsSize&&!shoes&&!eyes&&!hair&&!hso&&!images&&!pdf&&!type){
                 alert('One or more parametres is empty');
             } else{
-                this.saveRequest(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf, type);
+                this.saveRequest(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf, type, as);
                 alert('Your request has been sent!');
                 document.getElementById('becomeModelForm').reset();
                 this.setState({
@@ -123,7 +124,7 @@ export default class Admin extends Component {
             
     
     
-    saveRequest=(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf, type)=>{
+    saveRequest=(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf, type, ass)=>{
         this.state.newRequestRef.add ({
             "name":firstName, 
             "Last Name": lastName,  
@@ -137,7 +138,8 @@ export default class Admin extends Component {
             "height": height,
             "images": images, 
             "pdf": pdf,
-            "type": type
+            "type": type,
+            "as": ass
         })
     }
 
@@ -154,9 +156,11 @@ export default class Admin extends Component {
                     <input placeholder='Shoes size (cm)' id='shoes'className='w-100 f4 pv2 mb4 mr2'/>
                     <input placeholder='Hair color' id='hair'className='w-100 f4 pv2 mb4 mr2'/>
                     <input placeholder='Eyes color' id='eyes'className='w-100 f4 pv2 mb4 mr2'/>
+                    <input placeholder='Additional Space (Optional)' id='as'className='w-100 f4 pv2 mb4 mr2'/>
                     <select name='type' id='type'>
                         <option value='newFace'>New Face</option>
                         <option value='dancer'>Dancer</option>
+                        <option value='mb'>Mainboard</option>
                     </select>
                     <p className='b'>Upload Main Image </p>
                     <input placeholder='Headshot straight on' name='hso' id='hso'className='inputfile' type='file' onChange={(e)=>this.setRef('hso', e)}/>

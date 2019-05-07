@@ -13,7 +13,8 @@ export default class Model extends Component{
             key:0,
             docExists: false,
             model: {
-                name: '...'
+                name: '...',
+                as:''
             }, 
             options:[
                 { value: 0, label: 'Characteristic' },
@@ -83,8 +84,11 @@ export default class Model extends Component{
             return (
                 <div className='cf main'>
                     <nav className="fl w-30 mb6 mt3 cf">
-                        <p className='b f2 pa2 pl4 mb5 flex items-center'>
+                        <p className='b f2 pa2 pl4 mb1 flex items-center'>
                             {this.state.model.name} <button onClick={this.addToCart}id='addButton' style={{height: '1.5rem', width:'1.5rem'}}></button>
+                        </p>
+                        <p className='mb4'>
+                            {this.state.model.as}
                         </p>
                         <ul className='list pl4'>
                                 <li className='black f4 pv1 mb4 link dim pa2 pt0 pl0 pointer'  onClick={()=>this.changeKey(0)}>Characteristic</li>

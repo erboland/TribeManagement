@@ -52,7 +52,7 @@ const ModelSections = ({number, modelInfo, isMobile})=>{
         } else {
             return (
                 <div className='fl w-100 mt6 pt4' style={{height: '30vh'}}>
-                    Download <a className='dim pointer b black no-underline' href={modelInfo.pdf}>PDF</a>
+                    Download Polas <a className='dim pointer b black no-underline' href={modelInfo.pdf}>PDF</a>
                 </div>
             );
         }
