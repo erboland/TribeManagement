@@ -22,16 +22,26 @@ export default class Admin extends Component {
 
     setRef=(id, e)=>{  
         if (e.target.files[0]){
-                const file = e.target.files[0];
-                const mainImage=this.props.storage.ref().child(file.name);
-                mainImage.put(file).then(snapshot=>{
-                    mainImage.getDownloadURL().then(url=>{
-                        this.setState({
-                            [id]: url
-                        })
-                    })
-                    document.getElementById('l'+id).style.color='black';
-                })       
+            const r = new XMLHttpRequest()
+            const d = new FormData()
+            const l = e.target.files[0];
+            var u
+        
+            d.append('image', l)
+            r.open('POST', 'https://api.imgur.com/3/image/')
+            r.setRequestHeader('Authorization', `Client-ID ee774855e4dac36`)
+            r.onreadystatechange = function () {
+              if(r.status === 200 && r.readyState === 4) {
+                let res = JSON.parse(r.responseText);
+                u = `https://i.imgur.com/${res.data.id}.png`; 
+                this.setState({
+                    [id]: u
+                })
+                document.getElementById('l'+id).style.color='black';
+              }
+            }.bind(this)
+            
+            r.send(d)    
         }
 
     }
@@ -45,24 +55,35 @@ export default class Admin extends Component {
             for (var i = 0; i < e.target.files.length; i++) {
                 var imageFile = e.target.files[i];
         
-                this.uploadImageAsPromise(imageFile);
+                this.uploadImage(imageFile);
             }
         }
     }
-    uploadImageAsPromise=(imageFile)=>{
-            var storageRef = this.props.storage.ref().child(imageFile.name);
-            //Upload file
-            storageRef.put(imageFile).then (snapshot=>{
-                storageRef.getDownloadURL().then(url=>{
-                    this.state.images.push(url);
-                    let newArray=this.state.images;
-                    this.setState({
-                        images: newArray
-                    })
-                })
-            });
-    }
 
+    uploadImage=(imageFile)=>{
+        const r = new XMLHttpRequest()
+        const d = new FormData()
+        const e = imageFile
+        var u
+    
+        d.append('image', e)
+        var imagesArray= this.state.images
+        r.open('POST', 'https://api.imgur.com/3/image/')
+        r.setRequestHeader('Authorization', `Client-ID ee774855e4dac36`)
+        r.onreadystatechange = function () {
+          if(r.status === 200 && r.readyState === 4) {
+            let res = JSON.parse(r.responseText);
+            u = `https://i.imgur.com/${res.data.id}.png`;
+            imagesArray.push(u);
+            this.setState({
+                images: imagesArray
+            })
+          }
+        }.bind(this)
+        
+        r.send(d)
+    }
+    
 
     getInputVal=(id) =>{
         return document.getElementById(id).value;
@@ -85,7 +106,6 @@ export default class Admin extends Component {
         let type=this.getInputVal('type');
 
         
-        if (hso&&images){
             if (!firstName&&!lastName&&!bustSize&&!waistSize&&!hipsSize&&!shoes&&!eyes&&!hair&&!hso&&!images&&!pdf&&!type){
                 alert('One or more parametres is empty');
             } else{
@@ -99,12 +119,9 @@ export default class Admin extends Component {
                 document.getElementById('lhso').style.color='gray';
                 document.getElementById('lpdf').style.color='gray';
             }
-        } else {
-            alert('Wait untill your pictures uploaded')
-        }
-   
+        } 
             
-    }
+    
     
     saveRequest=(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf, type)=>{
         this.state.newRequestRef.add ({

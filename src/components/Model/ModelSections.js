@@ -17,7 +17,8 @@ const ModelSections = ({number, modelInfo, isMobile})=>{
                                 Height: {modelInfo.height} cm <br/>
                                 Chest: {modelInfo.chest} cm<br/>
                                 Waist: {modelInfo.waist} cm<br/>
-                                Shoes: {modelInfo.shoes} cm<br/>
+                                Hips: {modelInfo.hips} cm<br/>
+                                Shoes: {modelInfo.shoes}<br/>
                                 Hair: {modelInfo.hair}<br/>
                                 Eyes: {modelInfo.eyes}
                             </p>
@@ -36,6 +37,7 @@ const ModelSections = ({number, modelInfo, isMobile})=>{
                             Height: ... cm <br/>
                             Chest: ... cm<br/>
                             Waist: ... cm<br/>
+                            Hips: ... cm <br/>
                             Shoes: ... cm<br/>
                             Hair: ...<br/>
                             Eyes: ...
