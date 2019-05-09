@@ -26,22 +26,36 @@ export default class Admin extends Component {
             const d = new FormData()
             const l = e.target.files[0];
             var u
-        
-            d.append('image', l)
-            r.open('POST', 'https://api.imgur.com/3/image/')
-            r.setRequestHeader('Authorization', `Client-ID ee774855e4dac36`)
-            r.onreadystatechange = function () {
-              if(r.status === 200 && r.readyState === 4) {
-                let res = JSON.parse(r.responseText);
-                u = `https://i.imgur.com/${res.data.id}.png`; 
-                this.setState({
-                    [id]: u
-                })
-                document.getElementById('l'+id).style.color='black';
-              }
-            }.bind(this)
-            
-            r.send(d)    
+            if (id!=='pdf'){
+                d.append('image', l)
+                r.open('POST', 'https://api.imgur.com/3/image/')
+                r.setRequestHeader('Authorization', `Client-ID ee774855e4dac36`)
+                r.onreadystatechange = function () {
+                if(r.status === 200 && r.readyState === 4) {
+                    let res = JSON.parse(r.responseText);
+                    u = `https://i.imgur.com/${res.data.id}.png`; 
+                    this.setState({
+                        [id]: u
+                    })
+                    document.getElementById('l'+id).style.color='black';
+                }
+                }.bind(this)
+                
+                r.send(d)  
+            } else {
+                let label = "l" + id;
+                const mainImage = this.props.storage.ref().child(l.name);
+                mainImage.put(l).then(snapshot => {
+                    mainImage.getDownloadURL().then(url => {
+                    this.setState({
+                        [id]: url
+                    });
+                    console.log(url)
+                    document.getElementById(label).style.color = "black";
+                    });
+                });
+            }
+              
         }
 
     }
@@ -50,7 +64,7 @@ export default class Admin extends Component {
 
         if (e.target.files.length>0){
             this.setState({
-                allImages: e.target.files.length
+                allImages: e.target.files.length+this.state.allImages
             });
             for (var i = 0; i < e.target.files.length; i++) {
                 var imageFile = e.target.files[i];

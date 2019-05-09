@@ -7,7 +7,8 @@ import ModelCard from './ModelCard';
         super() 
         this.state={
           model: [],
-          display: 1
+          display: 1,
+          letter: ''
         }
         
       }
@@ -26,6 +27,16 @@ import ModelCard from './ModelCard';
         this.setState({
           display: this.props.number
         })
+
+      }
+
+      componentDidUpdate (prevProps){
+        if(this.props.letter!==this.state.letter){
+          this.setState({
+            letter: this.props.letter,
+            display: 5
+          })
+        }
 
       }
        
@@ -94,9 +105,43 @@ import ModelCard from './ModelCard';
 
         return filteredModelsCards
       }
-      
+      letterFilter=(letter)=>{
+        let filteredModels=[];
+        for(let i=0; i<this.state.model.length; i++){
+          if (this.state.model[i].name.charAt(0)==letter){
+            filteredModels.push(this.state.model[i]);
+          }
+        }
+        let filteredModelsCards=[]
+
+        filteredModels.map(doc=>{
+          filteredModelsCards.push(<ModelCard 
+            key={doc.id} 
+            id={doc.id}
+            modelHeight={doc.height}
+            modelChest={doc.chest}
+            modelEyes={doc.eyes}
+            modelHair={doc.hair}
+            modelName={doc.name}
+            modelShoes={doc.shoes}
+            modelWaist={doc.waist}
+            mainImg={doc.MainPicture}
+            />); 
+        })
+        if (filteredModelsCards.length===0){
+          filteredModelsCards.push(
+            <div className='flex justify-center items-center f2 gray'>
+              No models found
+            </div>
+          )
+        }
+
+        return filteredModelsCards
+
+      }
 
       render (){
+        console.log(this.state.letter)
           if (this.state.model.length>0){
             if (this.state.display===1){
               return (
@@ -151,6 +196,15 @@ import ModelCard from './ModelCard';
                   </div>
                 </article>
               )
+            } else if(this.state.display===5) {
+              return (
+                <article>
+                <div className='cf pa2 pl0 pr3'>
+                  {this.letterFilter(this.state.letter)}
+                </div>
+              </article>
+              )
+              
             }
             
           } else {

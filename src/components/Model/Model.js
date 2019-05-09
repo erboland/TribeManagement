@@ -84,10 +84,10 @@ export default class Model extends Component{
             return (
                 <div className='cf main'>
                     <nav className="fl w-30 mb6 mt3 cf">
-                        <p className='b f2 pa2 pl4 mb1 flex items-center'>
+                        <p className='b f2 pa2 pl4 pb0 mb1 flex items-center'>
                             {this.state.model.name} <button onClick={this.addToCart}id='addButton' style={{height: '1.5rem', width:'1.5rem'}}></button>
                         </p>
-                        <p className='mb4'>
+                        <p className='mb4 f5 pa2 pl4 mb1 flex items-center gray pt0'>
                             {this.state.model.as}
                         </p>
                         <ul className='list pl4'>
