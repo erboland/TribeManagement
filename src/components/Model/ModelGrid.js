@@ -105,7 +105,7 @@ export default class ModelGrid extends Component{
         let table=[];
         for (let i=0; i<=actualImages.length;i++){
             table.push(
-                <div className='albumPhoto fl w-40 pa2 pt0 ba mr2 mb2 pointer' >
+                <div className='albumPhoto fl w-40 pa2 pt0 mr2 mb2 pointer' >
                     <img src={actualImages[i]} onClick={(e)=>this.setNewImage(i, e)}/>
                 </div>
             )
