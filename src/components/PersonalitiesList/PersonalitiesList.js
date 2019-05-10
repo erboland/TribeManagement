@@ -19,8 +19,8 @@ import ModelCard from './ModelCard';
           const model = [];
           snap.forEach(doc => {
             let id=doc.id;
-            const { height, chest, eyes, hair, name, shoes, waist, MainPicture, type} = doc.data();
-            model.push({ height, chest, eyes, hair, name, shoes, waist, id, MainPicture, type });
+            const { height, chest, eyes, hair, name, shoes, waist, MainPicture, type, hips, as} = doc.data();
+            model.push({ height, chest, eyes, hair, name, shoes, waist, id, MainPicture, type, hips, as });
           });
           this.setState({ model });
         });
@@ -55,6 +55,7 @@ import ModelCard from './ModelCard';
         if (actualModelsNumber!==0){
           for (let i=0; i<actualModels; i++){       
             let doc = this.state.model[i];
+            console.log(doc)
             table.push(<ModelCard 
               key={doc.id} 
               id={doc.id}
@@ -63,9 +64,11 @@ import ModelCard from './ModelCard';
               modelEyes={doc.eyes}
               modelHair={doc.hair}
               modelName={doc.name}
+              modelHips={doc.hips}
               modelShoes={doc.shoes}
               modelWaist={doc.waist}
               mainImg={doc.MainPicture}
+              modelAs={doc.as}
               />)
           }
           return table
@@ -97,9 +100,11 @@ import ModelCard from './ModelCard';
             modelEyes={doc.eyes}
             modelHair={doc.hair}
             modelName={doc.name}
+            modelHips={doc.hips}
             modelShoes={doc.shoes}
             modelWaist={doc.waist}
             mainImg={doc.MainPicture}
+            modelAs={doc.as}
             />); 
         })
 
@@ -122,10 +127,12 @@ import ModelCard from './ModelCard';
             modelChest={doc.chest}
             modelEyes={doc.eyes}
             modelHair={doc.hair}
+            modelHips={doc.hips}
             modelName={doc.name}
             modelShoes={doc.shoes}
             modelWaist={doc.waist}
             mainImg={doc.MainPicture}
+            modelAs={doc.as}
             />); 
         })
         if (filteredModelsCards.length===0){
@@ -167,10 +174,12 @@ import ModelCard from './ModelCard';
                     modelChest={doc.chest}
                     modelEyes={doc.eyes}
                     modelHair={doc.hair}
+                    modelHips={doc.hips}
                     modelName={doc.name}
                     modelShoes={doc.shoes}
                     modelWaist={doc.waist}
                     mainImg={doc.MainPicture}
+                    modelAs={doc.as}
                     />
                   })}
                   </div>

@@ -65,10 +65,12 @@ const MyCastingSteps =({number, castings, newRequestRef})=> {
                         modelEyes={objectDoc.eyes}
                         modelHair={objectDoc.hair}
                         modelName={objectDoc.name}
+                        modelHips={objectDoc.hips}
                         modelShoes={objectDoc.shoes}
                         modelWaist={objectDoc.waist}
                         isCasting={true}
                         mainImg={objectDoc.MainPicture}
+                        modelAs={objectDoc.as}
                         />
                     })}
                 </div>

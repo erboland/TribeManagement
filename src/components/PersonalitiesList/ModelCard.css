@@ -41,7 +41,7 @@
 }
 
 .hoverBox_text {
-    font-size: 1vh;
+	font-size: 0.75vh;
     display: inline-block;
     position: absolute;
     text-align: left;

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 
 export default class ModelGrid extends Component{
     constructor(){
@@ -7,41 +8,40 @@ export default class ModelGrid extends Component{
         this.state={
             actualImages: [],
             page:0, 
-            arrow: 'down'
+            arrow: 'down', 
+            images: []
         }
         
     }
 
-    generateImages=()=>{
-
-        let table = [];
+    generateImages=(n)=>{
+        n=this.state.page
+        let newTable=[];
+        console.log(this.state.images)
         let imagesNumber=(this.state.page*6+5)<this.state.actualImages.length?this.state.page*6+5:this.state.actualImages.length-1;
-        for (let i=6*this.state.page; i<=imagesNumber;i++){
-            table.push(
-                <div className='albumPhoto fl w-40 pa2 pt0 ba mr2 mb2 pointer' >
-                    <img src={this.state.actualImages[i]} onClick={(e)=>this.setNewImage(i, e)}/>
-                </div>
-            )
+        for (let i=this.state.page*6; i<=imagesNumber;i++){
+            newTable.push(this.state.images[i]);
         }
-        return table;
+
+        return newTable;
     }
     pageChange=(number, e)=>{
         e.preventDefault();
-
+        let newPage= this.state.page+number;
         if (number===1){
             this.setState({
-                page: this.state.page-1
+                page: newPage
             })
         }else{
             this.setState({
-                page: this.state.page+1
+                page: newPage
             })
         }
-        if (this.state.page===0){
+        if (newPage===0){
             this.setState({
                 arrow: 'down'
             })
-        } else if (this.state.page>Math.round(this.props.images.length/6)){
+        } else if (newPage+1>this.state.actualImages.length/6){
             this.setState({
                 arrow: "top"
             })
@@ -50,27 +50,28 @@ export default class ModelGrid extends Component{
                 arrow: "middle"
             })
         }
+        console.log(this.state.arrow)
         
     }
     arrowStatus = ()=>{
         if (this.state.arrow==='down'){
             return (
                 <div className='flex items-center justify-center w-90'>
-                <button onClick={e=>this.pageChange(0, e)} id='downArrow'></button>
+                <button onClick={e=>this.pageChange(1, e)} id='downArrow'></button>
                 </div>
             )
 
         } else if (this.state.arrow==='top'){
             return (
                 <div className='flex items-center justify-center w-90'>
-                <button onClick={e=>this.pageChange(1, e)} id='topArrow'></button>
+                <button onClick={e=>this.pageChange(-1, e)} id='topArrow'></button>
                 </div>
             )
         } else if(this.state.arrow==="middle"){
             return (
                 <div className='flex items-center justify-center w-90'>
-                    <button onClick={e=>this.pageChange(0, e)} id='downArrow'></button>
-                    <button onClick={e=>this.pageChange(1, e)} id='topArrow'></button>
+                    <button onClick={e=>this.pageChange(1, e)} id='downArrow'></button>
+                    <button onClick={e=>this.pageChange(-1, e)} id='topArrow'></button>
                 </div>
             )
         } else {
@@ -101,6 +102,17 @@ export default class ModelGrid extends Component{
                 arrow: 'none'
             })
         }
+        let table=[];
+        for (let i=0; i<=actualImages.length;i++){
+            table.push(
+                <div className='albumPhoto fl w-40 pa2 pt0 ba mr2 mb2 pointer' >
+                    <img src={actualImages[i]} onClick={(e)=>this.setNewImage(i, e)}/>
+                </div>
+            )
+        }
+        this.setState({
+            images: table
+        })
     }
     render(){
         return (

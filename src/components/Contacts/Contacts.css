@@ -1,3 +1,27 @@
 p{
     font-size: 1.25rem;
 }
+.image{
+    position: absolute;
+	top:0.5rem;
+	left:0.5rem;
+	right: 0.5rem;
+	bottom: 0.5rem;
+}
+
+.hoverbox{
+    position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+}
+
+.hoverbox:after{
+    content: '';
+	display:inline-block;
+	vertical-align: top;
+	width: 90%;
+	height: 0;
+	padding-top: 100%;
+}

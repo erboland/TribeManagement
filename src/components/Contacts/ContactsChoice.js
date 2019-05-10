@@ -6,9 +6,13 @@ const ContactsChoice = ({number, database, isMobile}) => {
     let newMessageRef = database.collection('messages');
     let userFeed = new Instafeed({
         get: 'user',
-        userId: 'tribemodels',
-        accessToken: '81c59bb6fde7477b8d03d048f59a0c30'
+        userId: '221333225',
+        accessToken: '221333225.81c59bb.352c7ef893e54409a04e45905d2bae45',
+        limit: 4, 
+        resolution: 'standard_resolution', 
+        template: '<div class="w-20 h-20 mr0 ma2 hoverbox" fl><a href="{{link}}" ><img src="{{image}}" class="image" /></a></p></div>'
     })
+    console.log(userFeed.run())
 
     if (!isMobile){
         if (number===0) {
@@ -35,6 +39,9 @@ const ContactsChoice = ({number, database, isMobile}) => {
                     <p>
                         Instagram <a href='https://www.instagram.com/tribe.management/' className='link black dim no-underline'>@tribe.management</a>
                     </p>
+                    <div id='instafeed'>
+                        
+                    </div>
                 </div>
             );
     
