@@ -119,21 +119,25 @@ export default class Admin extends Component {
         let pdf=this.state.pdf;
         let type=this.getInputVal('type');
         let as=this.getInputVal('as');
-
         
-            if (!firstName&&!lastName&&!bustSize&&!waistSize&&!hipsSize&&!shoes&&!eyes&&!hair&&!hso&&!images&&!pdf&&!type){
-                alert('One or more parametres is empty');
-            } else{
-                this.saveRequest(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf, type, as);
-                alert('Your request has been sent!');
-                document.getElementById('becomeModelForm').reset();
-                this.setState({
-                    images: [],
-                    allImages: 0
-                });
-                document.getElementById('lhso').style.color='gray';
-                document.getElementById('lpdf').style.color='gray';
+            if(!hso&&!images.length&&!pdf){
+                alert('Wait until your images uploaded');
+            } else {
+                if (!firstName&&!lastName&&!bustSize&&!waistSize&&!hipsSize&&!shoes&&!eyes&&!hair&&!hso&&!images&&!pdf&&!type){
+                    alert('One or more parametres is empty');
+                } else{
+                    this.saveRequest(firstName, lastName, bustSize, waistSize, height, hipsSize, shoes, eyes, hair, hso, images, pdf, type, as);
+                    alert('Your request has been sent!');
+                    document.getElementById('becomeModelForm').reset();
+                    this.setState({
+                        images: [],
+                        allImages: 0
+                    });
+                    document.getElementById('lhso').style.color='gray';
+                    document.getElementById('lpdf').style.color='gray';
+                }
             }
+            
         } 
             
     

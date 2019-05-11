@@ -37,6 +37,7 @@ const MyCastingSteps =({number, castings, newRequestRef})=> {
         if (firstName&&lastName&&email&&contactPhone&&message&&newCastingsArray){
             emailjs.send(service_id, template_id, template_params, "user_SaASf2XDhCvZyY5IzHX2e").then(()=>{
                 alert('Your request has been sent');
+                localStorage.clear();
             });
             
             

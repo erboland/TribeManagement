@@ -14,16 +14,31 @@ import ModelCard from './ModelCard';
       }
 
       componentDidMount (){
-
+        
         this.props.database.collection('models').get().then(snap => {
           const model = [];
+          var mainBoardArray=[];
+          var notMainBoardArray=[];
           snap.forEach(doc => {
             let id=doc.id;
             const { height, chest, eyes, hair, name, shoes, waist, MainPicture, type, hips, as} = doc.data();
             model.push({ height, chest, eyes, hair, name, shoes, waist, id, MainPicture, type, hips, as });
           });
-          this.setState({ model });
+          for (let i=0; i<model.length; i++){
+            if (model[i].type=='mb'){
+              mainBoardArray.push(model[i]);
+            } else {
+              notMainBoardArray.push(model[i]);
+            }
+          }
+          let newArray=mainBoardArray.concat(notMainBoardArray);
+          this.setState({ model: newArray });
         });
+
+        
+
+
+ 
         this.setState({
           display: this.props.number
         })
@@ -55,21 +70,21 @@ import ModelCard from './ModelCard';
         if (actualModelsNumber!==0){
           for (let i=0; i<actualModels; i++){       
             let doc = this.state.model[i];
-            console.log(doc)
-            table.push(<ModelCard 
-              key={doc.id} 
-              id={doc.id}
-              modelHeight={doc.height}
-              modelChest={doc.chest}
-              modelEyes={doc.eyes}
-              modelHair={doc.hair}
-              modelName={doc.name}
-              modelHips={doc.hips}
-              modelShoes={doc.shoes}
-              modelWaist={doc.waist}
-              mainImg={doc.MainPicture}
-              modelAs={doc.as}
-              />)
+              table.push(<ModelCard 
+                key={doc.id} 
+                id={doc.id}
+                modelHeight={doc.height}
+                modelChest={doc.chest}
+                modelEyes={doc.eyes}
+                modelHair={doc.hair}
+                modelName={doc.name}
+                modelHips={doc.hips}
+                modelShoes={doc.shoes}
+                modelWaist={doc.waist}
+                mainImg={doc.MainPicture}
+                modelAs={doc.as}
+                />)
+            
           }
           return table
         } else { 
@@ -148,7 +163,6 @@ import ModelCard from './ModelCard';
       }
 
       render (){
-        console.log(this.state.letter)
           if (this.state.model.length>0){
             if (this.state.display===1){
               return (
