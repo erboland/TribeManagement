@@ -6,11 +6,11 @@ const ContactsChoice = ({number, database, isMobile}) => {
     let newMessageRef = database.collection('messages');
     let userFeed = new Instafeed({
         get: 'user',
-        userId: '221333225',
-        accessToken: '221333225.81c59bb.352c7ef893e54409a04e45905d2bae45',
+        userId: '9643392414',
+        accessToken: '9643392414.cf33cef.369b9eba43d548cab5c18beba68594ba',
         limit: 4, 
         resolution: 'standard_resolution', 
-        template: '<div class="w-20 h-20 mr0 ma2 hoverbox" fl><a href="{{link}}" ><img src="{{image}}" class="image" /></a></p></div>'
+        template: '<div class="w-25 h-20 mr0 hoverbox" fl><a href="{{link}}" ><img src="{{image}}" class="image" /></a></p></div>'
     })
     console.log(userFeed.run())
 
@@ -35,7 +35,7 @@ const ContactsChoice = ({number, database, isMobile}) => {
             );
         } else {
             return (
-                <div className='instagram fr w-75'>
+                <div className='instagram fr w-80'>
                     <p>
                         Instagram <a href='https://www.instagram.com/tribe.management/' className='link black dim no-underline'>@tribe.management</a>
                     </p>
