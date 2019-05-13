@@ -33,7 +33,16 @@ export default class Personalities extends Component{
 
     letterSetter = (l, e)=>{
         e.preventDefault();
-        this.setState({letter: l})
+        this.setState({letter: l});
+        for (let i=14;i<=30;i++){
+            if (document.getElementsByTagName('a')[i].id===l){
+                document.getElementsByTagName('a')[i].style.color='black';
+            } else {
+                document.getElementsByTagName('a')[i].style.color='gray'
+            }
+            
+        }
+        console.log()
     }
     
     render () {
@@ -46,32 +55,32 @@ export default class Personalities extends Component{
                     <Link className="link mr3 dim pointer black" to='/allmodels' id='2'>All</Link>
                 </div>
                 <div id="personalities_alphabet" className='pl2'>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('A',e)}>a</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('B',e)}>b</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('C',e)}>c</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('D',e)}>d</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('E',e)}>e</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('F',e)}>f</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('G',e)}>g</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('H',e)}>h</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('I',e)}>i</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('J',e)}>j</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('K',e)}>k</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('L',e)}>l</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('M',e)}>m</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('N',e)}>n</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('O',e)}>o</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('P',e)}>p</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('Q',e)}>q</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('R',e)}>r</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('S',e)}>s</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('T',e)}>t</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('V',e)}>v</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('U',e)}>u</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('W',e)}>w</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('X',e)}>x</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('Y',e)}>y</a>
-                    <a className="link mr2 dim gray pointer" onClick={(e)=>this.letterSetter('Z',e)}>z</a>
+                    <a className="link mr2 dim gray pointer" id='A' onClick={(e)=>this.letterSetter('A',e)}>a</a>
+                    <a className="link mr2 dim gray pointer" id='B' onClick={(e)=>this.letterSetter('B',e)}>b</a>
+                    <a className="link mr2 dim gray pointer" id='C' onClick={(e)=>this.letterSetter('C',e)}>c</a>
+                    <a className="link mr2 dim gray pointer" id='D' onClick={(e)=>this.letterSetter('D',e)}>d</a>
+                    <a className="link mr2 dim gray pointer" id='E' onClick={(e)=>this.letterSetter('E',e)}>e</a>
+                    <a className="link mr2 dim gray pointer" id='F' onClick={(e)=>this.letterSetter('F',e)}>f</a>
+                    <a className="link mr2 dim gray pointer" id='G' onClick={(e)=>this.letterSetter('G',e)}>g</a>
+                    <a className="link mr2 dim gray pointer" id='H' onClick={(e)=>this.letterSetter('H',e)}>h</a>
+                    <a className="link mr2 dim gray pointer" id='I' onClick={(e)=>this.letterSetter('I',e)}>i</a>
+                    <a className="link mr2 dim gray pointer" id='J' onClick={(e)=>this.letterSetter('J',e)}>j</a>
+                    <a className="link mr2 dim gray pointer" id='K' onClick={(e)=>this.letterSetter('K',e)}>k</a>
+                    <a className="link mr2 dim gray pointer" id='L' onClick={(e)=>this.letterSetter('L',e)}>l</a>
+                    <a className="link mr2 dim gray pointer" id='M' onClick={(e)=>this.letterSetter('M',e)}>m</a>
+                    <a className="link mr2 dim gray pointer" id='N' onClick={(e)=>this.letterSetter('N',e)}>n</a>
+                    <a className="link mr2 dim gray pointer" id='O' onClick={(e)=>this.letterSetter('O',e)}>o</a>
+                    <a className="link mr2 dim gray pointer" id='P' onClick={(e)=>this.letterSetter('P',e)}>p</a>
+                    <a className="link mr2 dim gray pointer" id='Q' onClick={(e)=>this.letterSetter('Q',e)}>q</a>
+                    <a className="link mr2 dim gray pointer" id='R' onClick={(e)=>this.letterSetter('R',e)}>r</a>
+                    <a className="link mr2 dim gray pointer" id='S' onClick={(e)=>this.letterSetter('S',e)}>s</a>
+                    <a className="link mr2 dim gray pointer" id='T' onClick={(e)=>this.letterSetter('T',e)}>t</a>
+                    <a className="link mr2 dim gray pointer" id='V' onClick={(e)=>this.letterSetter('V',e)}>v</a>
+                    <a className="link mr2 dim gray pointer" id='U' onClick={(e)=>this.letterSetter('U',e)}>u</a>
+                    <a className="link mr2 dim gray pointer" id='W' onClick={(e)=>this.letterSetter('W',e)}>w</a>
+                    <a className="link mr2 dim gray pointer" id='X' onClick={(e)=>this.letterSetter('X',e)}>x</a>
+                    <a className="link mr2 dim gray pointer" id='Y' onClick={(e)=>this.letterSetter('Y',e)}>y</a>
+                    <a className="link mr2 dim gray pointer" id='Z' onClick={(e)=>this.letterSetter('Z',e)}>z</a>
                 </div>
                 <PersonalitiesList isMobile={this.props.isMobile}  database={this.props.database} number={this.props.number} letter={this.state.letter}/>
                 <div className='flex justify-center'>
