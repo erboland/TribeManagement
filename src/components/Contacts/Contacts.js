@@ -47,7 +47,7 @@ export default class Contacts extends Component{
         if (!this.props.isMobile){
             return (
                 <div className='cf main'>
-                    <nav className="fl w-20 mb6 mt3">
+                    <nav className="fl w-25 mb6 mt3">
                     <ul className='list'>
                             <li className='gray f4 pb2 mb3 link dim pa2 pt0 pl0 pointer' onClick={()=>this.keyFixer(0)} id='0'color={{}}> Contacts</li>
                             <li className='gray f4 pv2 mb3 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(2)} id='2'>Social Media</li>

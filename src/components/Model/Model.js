@@ -10,7 +10,7 @@ export default class Model extends Component{
     constructor(){
         super()
         this.state={
-            key:0,
+            key:10,
             docExists: false,
             model: {
                 name: '...',
@@ -46,6 +46,13 @@ export default class Model extends Component{
                 document.getElementById('addButton')?document.getElementById('addButton').id='removeButton':console.log('no element');
             } 
          }
+         for (let i=10; i<=12; i++){
+            if (i===this.state.key) {
+                document.getElementById(i).style.color='black';
+            } else{
+                document.getElementById(i).style.color='gray';
+            }
+        }
 
     }
 
@@ -67,8 +74,18 @@ export default class Model extends Component{
         window.location.reload();
     }
 
-    changeKey=(key)=>{
-        this.setState ({key: key})
+    changeKey=(section, e)=>{
+        e.preventDefault();
+        this.setState ({key: section});
+        for (let i=10; i<=12;i++){
+            if (i===section){
+                document.getElementById(i).style.color='black'
+            } else {
+                document.getElementById(i).style.color='gray'
+            }
+        }
+        
+
     }
 
     changeNumber=(number)=>{
@@ -91,16 +108,16 @@ export default class Model extends Component{
                             {this.state.model.as}
                         </p>
                         <ul className='list pl4'>
-                                <li className='black f4 pv1 mb4 link dim pa2 pt0 pl0 pointer'  onClick={()=>this.changeKey(0)}>Characteristic</li>
-                                <li className='gray f4 pv1 mb4 link dim pa2 pl0 pointer' onClick={()=>this.changeKey(1)}>Portfolio</li>
-                                <li className='gray f4 pv1 mb4 link dim pa2 pl0 pointer' onClick={()=>this.changeKey(2)}>Print</li>
+                                <li className='f4 pv1 mb4 link dim pa2 pt0 pl0 pointer' id='10' onClick={(e)=>this.changeKey(10, e)}>Characteristic</li>
+                                <li className='f4 pv1 mb4 link dim pa2 pl0 pointer' id='11' onClick={(e)=>this.changeKey(11, e)}>Portfolio</li>
+                                <li className='f4 pv1 mb4 link dim pa2 pl0 pointer'id='12' onClick={(e)=>this.changeKey(12, e)}>Print</li>
                                 <li className='black f4 pb2 mb4 pa2 pt0 pl0 pointer mt4 pt4 '><Link to='/' className=' link dim black flex items-center'><div id='backArrow'></div><p>Back</p></Link></li>
                         </ul>
                         
                     </nav>
                     <div className='fl w-70'>
                         {this.characteristic}
-                        <ModelSections number={this.state.key} modelInfo={this.state.model} isMobile={this.props.isMobile} style={{height: '40vh'}}/>
+                        <ModelSections number={this.state.key-10} modelInfo={this.state.model} isMobile={this.props.isMobile} style={{height: '40vh'}}/>
                         
                         
                     </div>

@@ -8,9 +8,9 @@ const ContactsChoice = ({number, database, isMobile}) => {
         get: 'user',
         userId: '9643392414',
         accessToken: '9643392414.cf33cef.369b9eba43d548cab5c18beba68594ba',
-        limit: 4, 
+        limit: 3, 
         resolution: 'standard_resolution', 
-        template: '<div class="w-25 h-20 mr0 hoverbox" fl><a href="{{link}}" ><img src="{{image}}" class="image" /></a></p></div>'
+        template: '<div class="w-30 h-20 mr0 hoverbox" fl><a href="{{link}}" ><img src="{{image}}" class="image" /></a></p></div>'
     })
     console.log(userFeed.run())
 
@@ -23,7 +23,7 @@ const ContactsChoice = ({number, database, isMobile}) => {
                         <p>
                         Tribe management<br/> <br/>
                         <div className='gray lh-copy'>
-                        Tribe Management is an agency that represents personalities, guys and girls evolving in the Seven Arts and sports. We believe that charisma, originality and identity of each is a plus in the fashion industry.
+                        Tribe Management is an agency that represents personalities, girls and guys  evolving in the Seven Arts and sports. We believe that charisma, originality and identity of each is is an added value in the fashion industry.
                         <br/><br/>
                         Email us: <a href='mailto:contact@tribemanagement.lu' className='black dim pointer no-underline'>contact@tribemanagement.lu</a><br/>
                         <Link to='/controlpanel' className='gray no-underline dim pointer'>A</Link>
@@ -35,7 +35,7 @@ const ContactsChoice = ({number, database, isMobile}) => {
             );
         } else {
             return (
-                <div className='instagram fr w-80'>
+                <div className='instagram fr w-70'>
                     <p>
                         Instagram <a href='https://www.instagram.com/tribe.management/' className='link black dim no-underline'>@tribe.management</a>
                     </p>

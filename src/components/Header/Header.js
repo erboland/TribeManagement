@@ -16,16 +16,17 @@ export default class Header extends Component{
 
 
     keyFixer(key){
-        for (let i=0; i<=3; i++){
+        this.setState({
+            key: key
+        })
+        for (let i=0; i<=2; i++){
             if (i===key) {
                 document.getElementById(i).style.textDecoration='underline';
             } else{
                 document.getElementById(i).style.textDecoration='none';
             }
         }
-        this.setState({
-            key: key
-        })
+        
     }
     componentDidMount(){
         for (let i=0; i<=2; i++){
@@ -49,12 +50,12 @@ export default class Header extends Component{
 
     render () {
         return (
-            <nav style={{'text-underline-position': 'under' }}>
+            <nav style={{textUnderlinePosition: 'under' }}>
                 <div className="pa5 pa4-ns pl0 pr0 navWide">
                     <Link className="link dim black b f5 f4-ns dib mr3 " to="/" title="Home" >Tribe Management</Link>
                     <Link className="link dim black  f6 f5-ns dib mr3 pl4" to="/" title="Home" id='0' onClick={()=>this.keyFixer(0)}>Personalities</Link>
-                    <Link className="link dim black    f6 f5-ns dib mr3" to='/becomemodel' title="Store" id='1' onClick={()=>this.keyFixer(2)}>Become a model</Link>
-                    <Link className="link dim black    f6 f5-ns dib" to='/contacts' title="Contact" id='2'onClick={()=>this.keyFixer(3)}>Contacts</Link>
+                    <Link className="link dim black    f6 f5-ns dib mr3" to='/becomemodel' title="Store" id='1' onClick={()=>this.keyFixer(1)}>Become a model</Link>
+                    <Link className="link dim black    f6 f5-ns dib" to='/contacts' title="Contact" id='2'onClick={()=>this.keyFixer(2)}>Contacts</Link>
                     <Link className="link dim black    f6 f5-ns dib fr " to='/mycasting' title="My casting">My casting ({this.state.cart?this.state.cart.length:0})</Link>
                 </div>
                 <div className="navNarrow pt3 ">

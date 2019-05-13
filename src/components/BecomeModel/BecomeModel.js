@@ -212,11 +212,7 @@ export default class Header extends Component {
               <div id="firstStep">
                 <p className="black b f4">To be a model</p>
                 <p className="f4 gray mb5 lh-copy">
-                  Crystal is always looking for new talents. To be a model you
-                  need to be a 15-20 years old girl and 1.75-1.80 m / 5’9 – 6’0
-                  tall with a serious interest in modeling. Under 18 of age you
-                  must have parental consent. We do not have open call. For
-                  model submissions please complete the form below.
+                Tribe management is always looking for new talents and personalities. We do not have open calls. For model submissions please complete the form below
                 </p>
                 <p className="black b f4">Polaroid requirements</p>
                 <p className="f4 gray mb5 lh-copy">
@@ -430,11 +426,7 @@ export default class Header extends Component {
         <div>
           <p className="f3">To be a model</p>
           <p className="gray">
-            Crystal is always looking for new talents. To be a model you need to
-            be a 15-20 years old girl and 1.75-1.80 m / 5’9 – 6’0 tall with a
-            serious interest in modeling. Under 18 of age you must have parental
-            consent. We do not have open call. For model submissions please
-            complete the form below.
+          Tribe management is always looking for new talents and personalities. We do not have open calls. For model submissions please complete the form below
           </p>
           <p className="f3">Polaroid requirements</p>
           <p className="gray">
