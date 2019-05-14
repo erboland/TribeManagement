@@ -9,7 +9,7 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
     let modelType= modelAs?modelAs: ''
     return (
                     <a>
-                    <div className={castingWidthClass} onClick=''> 
+                    <div className={castingWidthClass} onClick='return true'> 
                         
                             <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10' id='image' src={image}/>
                             <div className='hoverBox_layer_top'>
