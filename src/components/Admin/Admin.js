@@ -210,12 +210,10 @@ export default class Admin extends Component {
                     <p className='b'>Upload model PDF file</p>
                     <input name='pdf' id='pdf' className='inputfile' type='file' onChange={(e)=>this.setRef('pdf', e)}/>
                     <label for='pdf' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lpdf'>Upload PDF</label>
-
-                        <input className="b pv3 input-reset ba b--black bg-transparent grow pointer f6 fl w-30" type="submit" value="Send" onClick={this.submitForm}/>
-
+                    <input className="b pv3 input-reset ba b--black bg-transparent grow pointer f6 fl w-30" type="submit" value="Send" onClick={this.submitForm}/>
                     <input name='url' id='url' className='inputfile' type='file' onChange={(e)=>this.setRef('url', e)}/>
                     <label for='url' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lurl'>Upload an Image</label>
-                    <p id='imageURL'>You will see the link here</p>
+                    <p id='imageURL' className='fl w-100'>You will see the link here</p>
                 </form>
                 
             </div>
