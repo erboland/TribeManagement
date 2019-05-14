@@ -13,8 +13,7 @@
 	max-width: 100%;
 }
 
-.hoverBox:hover .hoverBox_layer_top,
-.hovrBox:active .hoverBox_layer_top {
+.hoverBox:hover .hoverBox_layer_top {
 	opacity: 1;
 }
 
@@ -46,7 +45,6 @@
     position: absolute;
     text-align: left;
     align-items: baseline;
-    
 }
 #image{
 	position: absolute;
