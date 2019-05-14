@@ -23,7 +23,7 @@ const ContactsChoice = ({number, database, isMobile}) => {
                         <p>
                         Tribe management<br/> <br/>
                         <div className='gray lh-copy'>
-                        Tribe Management is an agency that represents personalities, girls and guys  evolving in the Seven Arts and sports. We believe that charisma, originality and identity of each is is an added value in the fashion industry.
+                        Tribe Management is an agency that represents personalities, girls and guys evolving in the Seven Arts and sports. We believe that charisma, originality and identity of each is an added value in the fashion industry.
                         <br/><br/>
                         Email us: <a href='mailto:contact@tribemanagement.lu' className='black dim pointer no-underline'>contact@tribemanagement.lu</a><br/>
                         <Link to='/controlpanel' className='gray no-underline dim pointer'>A</Link>
@@ -56,7 +56,7 @@ const ContactsChoice = ({number, database, isMobile}) => {
                     <div className='gray'>
                         <p>
                             <div className='gray lh-copy'>
-                            Tribe Management is an agency that represents personalities, guys and girls evolving in the Seven Arts and sports. We believe that charisma, originality and identity of each is a plus in the fashion industry.
+                            Tribe Management is an agency that represents personalities, girls and guys evolving in the Seven Arts and sports. We believe that charisma, originality and identity of each is an added value in the fashion industry.
                             <br/><br/>
                             Email us: <a href='mailto:contact@tribemanagement.lu' className='black dim pointer no-underline'>contact@tribemanagement.lu</a>
                             </div>

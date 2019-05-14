@@ -25,8 +25,26 @@ export default class Admin extends Component {
             const r = new XMLHttpRequest()
             const d = new FormData()
             const l = e.target.files[0];
-            var u
+            var u;
+            console.log(id);
             if (id!=='pdf'){
+
+                if (id=='url'){
+                    d.append('image', l)
+                    r.open('POST', 'https://api.imgur.com/3/image/')
+                    r.setRequestHeader('Authorization', `Client-ID ee774855e4dac36`)
+                    r.onreadystatechange = function () {
+                    if(r.status === 200 && r.readyState === 4) {
+                        let res = JSON.parse(r.responseText);
+                        u = `https://i.imgur.com/${res.data.id}.png`; 
+                        console.log(document.getElementById('imageURL'));
+                        document.getElementById('imageURL').innerText=u
+                    }
+                    }.bind(this)
+                    
+                    r.send(d)  
+                } else {
+
                 d.append('image', l)
                 r.open('POST', 'https://api.imgur.com/3/image/')
                 r.setRequestHeader('Authorization', `Client-ID ee774855e4dac36`)
@@ -42,7 +60,9 @@ export default class Admin extends Component {
                 }.bind(this)
                 
                 r.send(d)  
-            } else {
+                }
+
+            }  else {
                 let label = "l" + id;
                 const mainImage = this.props.storage.ref().child(l.name);
                 mainImage.put(l).then(snapshot => {
@@ -190,7 +210,12 @@ export default class Admin extends Component {
                     <p className='b'>Upload model PDF file</p>
                     <input name='pdf' id='pdf' className='inputfile' type='file' onChange={(e)=>this.setRef('pdf', e)}/>
                     <label for='pdf' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lpdf'>Upload PDF</label>
-                    <input className="b pv3 input-reset ba b--black bg-transparent grow pointer f6 fl w-30" type="submit" value="Send" onClick={this.submitForm}/>
+
+                        <input className="b pv3 input-reset ba b--black bg-transparent grow pointer f6 fl w-30" type="submit" value="Send" onClick={this.submitForm}/>
+
+                    <input name='url' id='url' className='inputfile' type='file' onChange={(e)=>this.setRef('url', e)}/>
+                    <label for='url' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lurl'>Upload an Image</label>
+                    <p id='imageURL'>You will see the link here</p>
                 </form>
                 
             </div>
