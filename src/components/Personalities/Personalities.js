@@ -28,6 +28,11 @@ export default class Personalities extends Component{
             document.getElementById('viewMoreIcon').style.display='none';
             document.getElementById('viewMore').style.textAlign='center';
         }
+        for (let i=0; i<=4; i++){
+            if (i===this.props.number) {
+                document.getElementById(20+i).style.color='black'
+            }
+        }
         
     }
 
@@ -49,10 +54,10 @@ export default class Personalities extends Component{
         return (
             <div className="personalities_desktop pl3">
                 <div className="personalities_types mt4 pv3 pl2"> 
-                    <Link to='/' className="link mr3 dim pointer black" id='1'>Main board</Link>
-                    <Link to='/newfaces' className="link mr3 dim pointer black" id='3'>New faces</Link>
-                    <Link to='/dancers'className="link mr3 dim  pointer black" id='4'>Dancers</Link>
-                    <Link className="link mr3 dim pointer black" to='/allmodels' id='2'>All</Link>
+                    <Link to='/' className="link mr3 dim pointer gray" id='21'>Main board</Link>
+                    <Link to='/newfaces' className="link mr3 dim pointer gray" id='23'>New faces</Link>
+                    <Link to='/dancers'className="link mr3 dim  pointer gray" id='24'>Dancers</Link>
+                    <Link className="link mr3 dim pointer gray" to='/allmodels' id='22'>All</Link>
                 </div>
                 <div id="personalities_alphabet" className='pl2'>
                     <a className="link mr2 dim gray pointer" id='A' onClick={(e)=>this.letterSetter('A',e)}>a</a>

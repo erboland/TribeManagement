@@ -16,17 +16,17 @@ export default class Contacts extends Component{
         }
         
     }
-    keyFixer(key){
+    keyFixer(section){
         this.setState(
             {
-                key: key
+                key: section
             }
         )
-        for (let i=0; i<=2; i++){
-            if (i===key) {
-                document.getElementById(i).style.color='black';
+        for (let i=0; i<=1; i++){
+            if (i===section) {
+                document.getElementById(30+i).style.color='black';
             } else{
-                document.getElementById(i).style.color='gray';
+                document.getElementById(30+i).style.color='gray';
             }
         }
     }
@@ -38,7 +38,7 @@ export default class Contacts extends Component{
     }
 
     componentDidMount(){
-        document.getElementById(this.state.key).style.color='black';
+        document.getElementById(this.state.key+30).style.color='black';
 
     }
     render () {
@@ -49,8 +49,8 @@ export default class Contacts extends Component{
                 <div className='cf main'>
                     <nav className="fl w-25 mb6 mt3">
                     <ul className='list'>
-                            <li className='gray f4 pb2 mb3 link dim pa2 pt0 pl0 pointer' onClick={()=>this.keyFixer(0)} id='0'color={{}}> Contacts</li>
-                            <li className='gray f4 pv2 mb3 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(2)} id='2'>Social Media</li>
+                            <li className='gray f4 pb2 mb3 link dim pa2 pt0 pl0 pointer' onClick={()=>this.keyFixer(0)} id='30'> Contacts</li>
+                            <li className='gray f4 pv2 mb3 link dim pa2 pl0 pointer' onClick={()=>this.keyFixer(1)} id='31'>Social Media</li>
                     </ul>
                     </nav> 
                     <ContactsChoice number={this.state.key} database={this.props.database} isMobile={this.props.isMobile}/>

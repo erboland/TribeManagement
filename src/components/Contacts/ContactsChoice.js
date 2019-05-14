@@ -17,8 +17,8 @@ const ContactsChoice = ({number, database, isMobile}) => {
     if (!isMobile){
         if (number===0) {
             return (
-                <div className='fl w-50'>
-                    <div className='fl w-80'>
+                <div className='fl w-70'>
+                    
                         <div className='contacts'>
                         <p>
                         Tribe management<br/> <br/>
@@ -30,12 +30,12 @@ const ContactsChoice = ({number, database, isMobile}) => {
                         </div>                           
                         </p>
                     </div>
-                </div>
+                
                 </div>
             );
         } else {
             return (
-                <div className='instagram fr w-70'>
+                <div className='instagram fl w-70'>
                     <p>
                         Instagram <a href='https://www.instagram.com/tribe.management/' className='link black dim no-underline'>@tribe.management</a>
                     </p>
