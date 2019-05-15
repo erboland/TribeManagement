@@ -11,6 +11,13 @@
 }
 .hoverBox img {
 	max-width: 100%;
+	opacity: 1;
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: .5s ease;
+	backface-visibility: hidden;
+
 }
 
 .hoverBox:hover .hoverBox_layer_top {
@@ -37,6 +44,7 @@
 	-webkit-transition: all 0.4s ease-in-out 0s;
 	-ms-transition: all 0.4s ease-in-out 0s;
 	transition: all 0.4s ease-in-out 0s;
+
 }
 
 .hoverBox_text {
