@@ -6,8 +6,7 @@ import firebase from 'firebase';
 import {DB_CONFIG} from './Config';
 import 'firebase/firestore';
 import 'firebase/storage';
-import {BrowserRouter, Route} from 'react-router-dom';
-
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Personalities from './components/Personalities/Personalities';
@@ -55,7 +54,7 @@ class App extends Component {
 
     return (
       <div className="App" >
-        <BrowserRouter basename='/'>
+        <Router history={history}>
         <Header isMobile={isMobile}/>
         <div className='main'>
           <Route exact path='/' component={props=><Personalities {...props} isMobile={isMobile} database={this.database} number={1}/>}/>
@@ -68,7 +67,7 @@ class App extends Component {
           <Route path='/dancers' component={props=><Personalities {...props} isMobile={isMobile} models={this.state.models} database={this.database} number={4}/>}/>
           <Route path='/controlpanel/:id' component={props=><Admin {...props} database={this.database} storage={this.storage}/>}/>
         </div>
-        </BrowserRouter>
+        </Router>
         <Footer isMobile={isMobile}/>
       </div>
     );
