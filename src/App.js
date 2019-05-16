@@ -6,7 +6,8 @@ import firebase from 'firebase';
 import {DB_CONFIG} from './Config';
 import 'firebase/firestore';
 import 'firebase/storage';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Personalities from './components/Personalities/Personalities';
@@ -15,9 +16,13 @@ import Contacts from './components/Contacts/Contacts';
 import Model from './components/Model/Model';
 import MyCasting from './components/MyCasting/MyCasting';
 import Admin from './components/Admin/Admin';
+import { createBrowserHistory } from 'history';
 
 let cartItems=[];
 
+export const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL
+});
 
 class App extends Component {
 
@@ -50,7 +55,7 @@ class App extends Component {
 
     return (
       <div className="App" >
-        <Router>
+        <BrowserRouter basename='/'>
         <Header isMobile={isMobile}/>
         <div className='main'>
           <Route exact path='/' component={props=><Personalities {...props} isMobile={isMobile} database={this.database} number={1}/>}/>
@@ -61,9 +66,9 @@ class App extends Component {
           <Route path='/allmodels' component={props=><Personalities {...props} isMobile={isMobile} models={this.state.models} database={this.database} number={2}/>}/>
           <Route path='/newfaces' component={props=><Personalities {...props} isMobile={isMobile} models={this.state.models} database={this.database} number={3}/>}/>
           <Route path='/dancers' component={props=><Personalities {...props} isMobile={isMobile} models={this.state.models} database={this.database} number={4}/>}/>
-          <Route path='/controlpanel' component={props=><Admin {...props} database={this.database} storage={this.storage}/>}/>
+          <Route path='/controlpanel/:id' component={props=><Admin {...props} database={this.database} storage={this.storage}/>}/>
         </div>
-        </Router>
+        </BrowserRouter>
         <Footer isMobile={isMobile}/>
       </div>
     );

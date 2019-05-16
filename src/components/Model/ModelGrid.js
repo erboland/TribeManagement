@@ -91,7 +91,7 @@ export default class ModelGrid extends Component{
 
     componentDidMount (){
         let defaultImages=['https://firebasestorage.googleapis.com/v0/b/tribemanagement-995eb.appspot.com/o/Gray%402x.png?alt=media&token=609c6656-2c25-4ffa-afe9-3b99ff6b253d','https://firebasestorage.googleapis.com/v0/b/tribemanagement-995eb.appspot.com/o/Gray%402x.png?alt=media&token=609c6656-2c25-4ffa-afe9-3b99ff6b253d','https://firebasestorage.googleapis.com/v0/b/tribemanagement-995eb.appspot.com/o/Gray%402x.png?alt=media&token=609c6656-2c25-4ffa-afe9-3b99ff6b253d','https://firebasestorage.googleapis.com/v0/b/tribemanagement-995eb.appspot.com/o/Gray%402x.png?alt=media&token=609c6656-2c25-4ffa-afe9-3b99ff6b253d','https://firebasestorage.googleapis.com/v0/b/tribemanagement-995eb.appspot.com/o/Gray%402x.png?alt=media&token=609c6656-2c25-4ffa-afe9-3b99ff6b253d','https://firebasestorage.googleapis.com/v0/b/tribemanagement-995eb.appspot.com/o/Gray%402x.png?alt=media&token=609c6656-2c25-4ffa-afe9-3b99ff6b253d']
-        let actualImages=this.props.images?this.props.images:defaultImages;
+        let actualImages=this.props.images?this.props.images.reverse():defaultImages;
         this.setState({
             actualImages: actualImages,
             mainImage: actualImages[0]

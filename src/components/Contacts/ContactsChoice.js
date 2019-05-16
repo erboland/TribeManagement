@@ -26,7 +26,6 @@ const ContactsChoice = ({number, database, isMobile}) => {
                         Tribe Management is an agency that represents personalities, girls and guys evolving in the Seven Arts and sports. We believe that charisma, originality and identity of each is an added value in the fashion industry.
                         <br/><br/>
                         Email us: <a href='mailto:contact@tribemanagement.lu' className='black dim pointer no-underline'>contact@tribemanagement.lu</a><br/>
-                        <Link to='/controlpanel' className='gray no-underline dim pointer'>A</Link>
                         </div>                           
                         </p>
                     </div>

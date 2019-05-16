@@ -15,7 +15,8 @@ export default class Admin extends Component {
 
     componentDidMount(){
         this.setState({
-            newRequestRef: this.props.database.collection('models')
+            newRequestRef: this.props.database.collection('models'),
+            id: this.props.match.params.id
         })
     }
 
@@ -182,42 +183,52 @@ export default class Admin extends Component {
     }
 
     render(){
-        return (
-            <div className='cf'>
-                <form id='becomeModelForm'>
-                    <input placeholder='First Name' className='pv2 f4 fl mb4' style={{width: '47.5%'}} id='fn'/>
-                    <input placeholder='Last Name' className=' pv2 f4 fr mb4' style={{width: '47.5%'}} id='ln'/>
-                    <input placeholder='Height (cm)' id='height' className='w-100 f4 pv2 mb4 mr2'/>
-                    <input placeholder='Bust size (cm)' id='bust' className='w-100 f4 pv2 mb4 mr2'/>
-                    <input placeholder='Waist size (cm)' id='waist' className='w-100 f4 pv2 mb4 mr2'/>
-                    <input placeholder='Hips size (cm)' id='hips'className='w-100 f4 pv2 mb4 mr2'/>
-                    <input placeholder='Shoes size (cm)' id='shoes'className='w-100 f4 pv2 mb4 mr2'/>
-                    <input placeholder='Hair color' id='hair'className='w-100 f4 pv2 mb4 mr2'/>
-                    <input placeholder='Eyes color' id='eyes'className='w-100 f4 pv2 mb4 mr2'/>
-                    <input placeholder='Additional Space (Optional)' id='as'className='w-100 f4 pv2 mb4 mr2'/>
-                    <select name='type' id='type'>
-                        <option value='newFace'>New Face</option>
-                        <option value='dancer'>Dancer</option>
-                        <option value='mb'>Mainboard</option>
-                    </select>
-                    <p className='b'>Upload Main Image </p>
-                    <input placeholder='Headshot straight on' name='hso' id='hso'className='inputfile' type='file' onChange={(e)=>this.setRef('hso', e)}/>
-                    <label for='hso' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lhso'>Main image</label>
-                    <p className='b'>Upload Portfolio Images </p>
-                    <input placeholder='Headshot profile' id='images' className='inputfile' type='file' name='images' onChange={this.severalImages} multiple/>
-                    <label className=' pv2 f4 fr mb4 become_submit w-100 dim pointer' for='images'>Upload Portfolio images</label>
-                    <p className='f3 mb2' id='imageStatus'>{this.state.images.length}/{this.state.allImages} uploaded</p>
-                    <p className='b'>Upload model PDF file</p>
-                    <input name='pdf' id='pdf' className='inputfile' type='file' onChange={(e)=>this.setRef('pdf', e)}/>
-                    <label for='pdf' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lpdf'>Upload PDF</label>
-                    <input className="b pv3 input-reset ba b--black bg-transparent grow pointer f6 fl w-30" type="submit" value="Send" onClick={this.submitForm}/>
-                    <input name='url' id='url' className='inputfile' type='file' onChange={(e)=>this.setRef('url', e)}/>
-                    <label for='url' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lurl'>Upload an Image</label>
-                    <p id='imageURL' className='fl w-100'>You will see the link here</p>
-                </form>
-                
-            </div>
-        )
+        console.log(this.state.id);
+        if (this.state.id==='tribepass1'){
+            return (
+                <div className='cf'>
+                    <form id='becomeModelForm'>
+                        <input placeholder='First Name' className='pv2 f4 fl mb4' style={{width: '47.5%'}} id='fn'/>
+                        <input placeholder='Last Name' className=' pv2 f4 fr mb4' style={{width: '47.5%'}} id='ln'/>
+                        <input placeholder='Height (cm)' id='height' className='w-100 f4 pv2 mb4 mr2'/>
+                        <input placeholder='Bust size (cm)' id='bust' className='w-100 f4 pv2 mb4 mr2'/>
+                        <input placeholder='Waist size (cm)' id='waist' className='w-100 f4 pv2 mb4 mr2'/>
+                        <input placeholder='Hips size (cm)' id='hips'className='w-100 f4 pv2 mb4 mr2'/>
+                        <input placeholder='Shoes size (cm)' id='shoes'className='w-100 f4 pv2 mb4 mr2'/>
+                        <input placeholder='Hair color' id='hair'className='w-100 f4 pv2 mb4 mr2'/>
+                        <input placeholder='Eyes color' id='eyes'className='w-100 f4 pv2 mb4 mr2'/>
+                        <input placeholder='Additional Space (Optional)' id='as'className='w-100 f4 pv2 mb4 mr2'/>
+                        <select name='type' id='type'>
+                            <option value='newFace'>New Face</option>
+                            <option value='dancer'>Dancer</option>
+                            <option value='mb'>Mainboard</option>
+                        </select>
+                        <p className='b'>Upload Main Image </p>
+                        <input placeholder='Headshot straight on' name='hso' id='hso'className='inputfile' type='file' onChange={(e)=>this.setRef('hso', e)}/>
+                        <label for='hso' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lhso'>Main image</label>
+                        <p className='b'>Upload Portfolio Images </p>
+                        <input placeholder='Headshot profile' id='images' className='inputfile' type='file' name='images' onChange={this.severalImages} multiple/>
+                        <label className=' pv2 f4 fr mb4 become_submit w-100 dim pointer' for='images'>Upload Portfolio images</label>
+                        <p className='f3 mb2' id='imageStatus'>{this.state.images.length}/{this.state.allImages} uploaded</p>
+                        <p className='b'>Upload model PDF file</p>
+                        <input name='pdf' id='pdf' className='inputfile' type='file' onChange={(e)=>this.setRef('pdf', e)}/>
+                        <label for='pdf' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lpdf'>Upload PDF</label>
+                        <input className="b pv3 input-reset ba b--black bg-transparent grow pointer f6 fl w-30" type="submit" value="Send" onClick={this.submitForm}/>
+                        <input name='url' id='url' className='inputfile' type='file' onChange={(e)=>this.setRef('url', e)}/>
+                        <label for='url' className='pv2 f4 fl mb4 become_submit w-100 gray dim pointer' id='lurl'>Upload an Image</label>
+                        <p id='imageURL' className='fl w-100'>You will see the link here</p>
+                    </form>
+                    
+                </div>
+            )
+        } else {
+            return (
+                <div className='gray b f1'>
+                    Error 404
+                </div>
+            )
+        }
+        
     }
 
 
