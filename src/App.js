@@ -15,13 +15,11 @@ import Contacts from './components/Contacts/Contacts';
 import Model from './components/Model/Model';
 import MyCasting from './components/MyCasting/MyCasting';
 import Admin from './components/Admin/Admin';
-import { createBrowserHistory } from 'history';
+
 
 let cartItems=[];
 
-export const history = createBrowserHistory({
-  basename: process.env.PUBLIC_URL
-});
+
 
 class App extends Component {
 
@@ -54,7 +52,7 @@ class App extends Component {
 
     return (
       <div className="App" >
-        <Router history={history}>
+        <Router>
         <Header isMobile={isMobile}/>
         <div className='main'>
           <Route exact path='/' component={props=><Personalities {...props} isMobile={isMobile} database={this.database} number={1}/>}/>
