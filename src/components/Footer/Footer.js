@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import './Footer.css';
-import {Link} from 'react-router-dom';
-
 export default class Footer extends Component{
 
 
@@ -31,7 +29,7 @@ export default class Footer extends Component{
                                 Tribe Management
                             </p>
                             <a href='mailto:contact@tribemanagement.lu' className='link white dim f4' >Contact@tribemanagement.lu</a><br/>
-                            <a href='https://www.instagram.com/tribe.management/' className='link white dim f4'>Instagram</a>
+                            <a href='https://www.instagram.com/tribe.management/' className='link white dim f4' target="_blank" rel="noopener noreferrer">Instagram</a>
                         </div>
                         {/* <div className="fr w-30" style={{lineHeight:'1.5'}}>
                             <p className='f4 mv0'>

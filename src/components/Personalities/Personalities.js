@@ -15,7 +15,7 @@ export default class Personalities extends Component{
         }
     }
     componentDidMount(){
-        if(this.props.number==2||this.props.number==3||this.props.number==4){
+        if(this.props.number===2||this.props.number===3||this.props.number===4){
             document.getElementById('viewMore').style.display='none';
         }
         document.getElementById('viewMore').style.textDecoration='none';

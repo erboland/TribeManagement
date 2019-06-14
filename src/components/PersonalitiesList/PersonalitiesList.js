@@ -25,7 +25,7 @@ import ModelCard from './ModelCard';
             model.push({ height, chest, eyes, hair, name, shoes, waist, id, MainPicture, type, hips, as });
           });
           for (let i=0; i<model.length; i++){
-            if (model[i].type=='mb'){
+            if (model[i].type==='mb'){
               mainBoardArray.push(model[i]);
             } else {
               notMainBoardArray.push(model[i]);
@@ -100,7 +100,7 @@ import ModelCard from './ModelCard';
       typeFilter=(type)=>{
         let filteredModels=[];
         for(let i=0; i<this.state.model.length; i++){
-          if (this.state.model[i].type==type){
+          if (this.state.model[i].type===type){
             filteredModels.push(this.state.model[i]);
           }
         }
@@ -128,7 +128,7 @@ import ModelCard from './ModelCard';
       letterFilter=(letter)=>{
         let filteredModels=[];
         for(let i=0; i<this.state.model.length; i++){
-          if (this.state.model[i].name.charAt(0)==letter){
+          if (this.state.model[i].name.charAt(0)===letter){
             filteredModels.push(this.state.model[i]);
           }
         }

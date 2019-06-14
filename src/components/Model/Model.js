@@ -46,13 +46,16 @@ export default class Model extends Component{
                 document.getElementById('addButton')?document.getElementById('addButton').id='removeButton':console.log('no element');
             } 
          }
-         for (let i=10; i<=12; i++){
-            if (i===this.state.key) {
-                document.getElementById(i).style.color='black';
-            } else{
-                document.getElementById(i).style.color='gray';
+         if(!this.props.isMobile){
+            for (let i=10; i<=12; i++){
+                if (i===this.state.key) {
+                    document.getElementById(i).style.color='black';
+                } else{
+                    document.getElementById(i).style.color='gray';
+                }
             }
-        }
+         }
+         
 
     }
 
@@ -125,15 +128,26 @@ export default class Model extends Component{
                 
             )
         } else {
-            return (
-                <div>
-                    <p className='f3 b flex items-center'>{this.state.model.name} <button onClick={this.addToCart}id='addButton' style={{height: '1.5rem', width:'1.5rem'}}></button></p>
-                    <Dropdown  options={this.state.options} onChange={this.changeNumber} value={defaultOption} placeholder="Select an option" />
-                    <ModelSections number={this.state.key} modelInfo={this.state.model} isMobile={this.props.isMobile} style={{height: '40vh'}}/>
-                </div>
+            if(this.state.model.height){
+                console.log(this.state.model.height)
+                return (
+                    <div>
+                        <p className='f3 b flex items-center'>{this.state.model.name} <button onClick={this.addToCart}id='addButton' style={{height: '1.5rem', width:'1.5rem'}}></button></p>
+                        <Dropdown  options={this.state.options} onChange={this.changeNumber} value={defaultOption} placeholder="Select an option" />
+                        <ModelSections number={this.state.key} modelInfo={this.state.model} isMobile={this.props.isMobile} style={{height: '40vh'}}/>
+                    </div>
+            )
+            } else {
+                return (
+                    <div>
+                        <p className='f3 b flex items-center'>{this.state.model.name} <button onClick={this.addToCart}id='addButton' style={{height: '1.5rem', width:'1.5rem'}}></button></p>
+                        
+                    </div>
+                
+    
+            )
+            }
             
-
-        )
             
         }
         

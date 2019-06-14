@@ -57,7 +57,7 @@ const ModelSections = ({number, modelInfo, isMobile})=>{
             );
         }
     } else {
-        if (number===0) {
+        if (number!==1) {
             let mainImage=modelInfo.MainPicture;
             if (modelInfo){
                 return (
@@ -130,13 +130,7 @@ const ModelSections = ({number, modelInfo, isMobile})=>{
                 
                 
     );
-        } else {
-            return (
-                <div>
-                    Error 404
-                </div>
-            )
-        }
+        } 
     }
 
 }

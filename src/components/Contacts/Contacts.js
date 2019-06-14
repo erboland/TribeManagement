@@ -38,7 +38,10 @@ export default class Contacts extends Component{
     }
 
     componentDidMount(){
-        document.getElementById(this.state.key+30).style.color='black';
+        if (!this.props.isMobile){
+            document.getElementById(this.state.key+30).style.color='black';
+        }
+        
 
     }
     render () {

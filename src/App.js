@@ -18,7 +18,6 @@ import MyCasting from './components/MyCasting/MyCasting';
 import Admin from './components/Admin/Admin';
 
 
-let cartItems=[];
 
 
 
