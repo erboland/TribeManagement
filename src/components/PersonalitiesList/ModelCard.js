@@ -12,9 +12,9 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
     }
     return (
                     
-                    <div className={castingWidthClass} onClick={onClickFunction()}> 
+                    <a className={castingWidthClass} onClick={onClickFunction()}> 
                         
-                            <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10' id='image' src={image}/>
+                            <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10' id='image' src={image} onHov />
                             <div className='hoverBox_layer_top'>
                                 <div className='hoverBox_text'>
                                     <p className='b pt0 f4 pb0'>
@@ -36,7 +36,7 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
                             </div>
                         
                         
-                    </div>
+                    </a>
                     
                 
       );
