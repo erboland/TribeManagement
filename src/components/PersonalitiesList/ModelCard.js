@@ -8,7 +8,7 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
     let image=mainImg?mainImg:'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png';
     let modelType= modelAs?modelAs: '';
     let onClickFunction=()=>{
-        return true
+        console.log('click')
     }
     return (
                     
