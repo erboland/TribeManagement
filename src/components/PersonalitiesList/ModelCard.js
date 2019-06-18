@@ -7,15 +7,12 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
     let castingWidthClass=isCasting?'hoverBox fl w-100 w-50-m w-33-l pa2':'hoverBox fl w-100 w-50-m w-25-l pa2';
     let image=mainImg?mainImg:'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png';
     let modelType= modelAs?modelAs: '';
-    let onClickFunction=()=>{
-        console.log('click')
-    }
     return (
-                    
-                    <a className={castingWidthClass} onClick={onClickFunction()}> 
+                  <a href onClick={(e)=>e.preventDefault()}> 
+                    <div className={castingWidthClass} onClick={(e)=>e.preventDefault()}> 
                         
-                            <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10' id='image' src={image} onClick={onClickFunction()}/>
-                            <a className='hoverBox_layer_top' onClick={onClickFunction()}>
+                            <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10' id='image' src={image} onClick={(e)=>e.preventDefault()}/>
+                            <a className='hoverBox_layer_top' onClick={(e)=>e.preventDefault()}>
                                 <div className='hoverBox_text'>
                                     <p className='b pt0 f4 pb0'>
                                         {modelName}
@@ -36,7 +33,8 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
                             </a>
                         
                         
-                    </a>
+                    </div>
+                    </a> 
                     
                 
       );
