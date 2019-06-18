@@ -20,7 +20,7 @@
 
 }
 
-.hoverBox:hover .hoverBox_layer_top {
+.hoverBox:hover .hoverBox_layer_top, .hoverBox:active .hoverBox_layer_top {
 	opacity: 1;
 }
 
