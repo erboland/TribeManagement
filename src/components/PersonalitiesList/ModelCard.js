@@ -14,8 +14,8 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
                     
                     <a className={castingWidthClass} onClick={onClickFunction()}> 
                         
-                            <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10' id='image' src={image} />
-                            <div className='hoverBox_layer_top'>
+                            <img alt='Model Image' className='hoverBox_layer_bottom w-100 db outline black-10' id='image' src={image} onClick={onClickFunction()}/>
+                            <a className='hoverBox_layer_top' onClick={onClickFunction()}>
                                 <div className='hoverBox_text'>
                                     <p className='b pt0 f4 pb0'>
                                         {modelName}
@@ -33,7 +33,7 @@ const ModelCard = ({modelName, modelHeight, modelChest, modelWaist, modelShoes, 
                                     </p>
                                     <Link to={"/model/"+id}className='link dim white underline f6' style={{textUnderlinePosition: 'under' }}>View Portfolio</Link>
                                 </div>
-                            </div>
+                            </a>
                         
                         
                     </a>
